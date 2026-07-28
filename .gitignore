@@ -1,0 +1,6 @@
+node_modules
+dist
+.DS_Store
+*.local
+docx_summary.txt
+pdf_summary.txt
