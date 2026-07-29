@@ -30,13 +30,13 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-800 font-sans selection:bg-[#48B83B] selection:text-white flex flex-col justify-between">
+    <div className="min-h-screen bg-slate-100 text-slate-800 font-sans selection:bg-[#48B83B] selection:text-white flex flex-col justify-between overflow-x-hidden">
       
       <div>
         {/* Navigation Header */}
         <Header
-          onScrollToSection={scrollToSection}
           onOpenModal={() => setIsModalOpen(true)}
+          onScrollToSection={(id) => scrollToSection(id)}
         />
 
         {/* Continuous Single Page Document Scroll Layout */}
@@ -103,44 +103,48 @@ function AppContent() {
         </main>
       </div>
 
-      {/* Floating Bottom Sticky Action Bar */}
+      {/* Floating Bottom Sticky Action Bar — Mobile Optimized */}
       {!isStickyClosed && (
-        <div className="sticky bottom-0 z-30 bg-slate-900 text-white py-3 px-4 shadow-xl print:hidden transition-all animate-fade-up">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs relative pr-8 sm:pr-0">
-            <div className="flex items-center space-x-2">
+        <div className="sticky bottom-0 z-30 bg-slate-900 text-white py-2.5 px-3 sm:px-4 shadow-2xl print:hidden border-t border-slate-800 transition-all">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 text-xs">
+            
+            {/* Desktop Left Text (Hidden on Mobile to Prevent Screen Clutter) */}
+            <div className="hidden md:flex items-center space-x-2 min-w-0">
               <span className="w-2.5 h-2.5 rounded-full bg-[#48B83B] animate-ping shrink-0"></span>
-              <span className="text-slate-200 font-bold leading-tight">
+              <span className="text-slate-200 font-bold truncate">
                 {t('footer.stickyText')}
               </span>
             </div>
 
-            <div className="flex items-center space-x-2.5 w-full sm:w-auto justify-end shrink-0">
+            {/* Mobile & Desktop Action Buttons */}
+            <div className="flex items-center justify-between sm:justify-end gap-2 w-full md:w-auto">
               <a
                 href="https://wa.me/8801815025322?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20Digital%20Marketing%20Proposal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer text-xs"
+                className="flex-1 sm:flex-none px-3 py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center justify-center gap-1.5 shadow-xs transition text-xs whitespace-nowrap"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-white" />
+                <MessageCircle className="w-3.5 h-3.5 text-white shrink-0" />
                 <span>{t('footer.whatsappUs')}</span>
               </a>
 
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer text-xs"
+                className="flex-1 sm:flex-none px-3.5 py-2 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold flex items-center justify-center gap-1.5 shadow-xs transition text-xs cursor-pointer whitespace-nowrap"
               >
-                <ShieldCheck className="w-3.5 h-3.5 text-slate-900" />
+                <ShieldCheck className="w-3.5 h-3.5 text-slate-900 shrink-0" />
                 <span>{t('footer.authorizeProposal')}</span>
               </button>
 
               <button
                 onClick={() => setIsStickyClosed(true)}
-                className="p-1 text-slate-400 hover:text-white rounded-full bg-slate-800 hover:bg-slate-700 transition cursor-pointer ml-1"
+                className="p-1.5 text-slate-400 hover:text-white rounded-full bg-slate-800 hover:bg-slate-700 transition cursor-pointer shrink-0"
                 title="Close action bar"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
+
           </div>
         </div>
       )}
