@@ -135,28 +135,17 @@ export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeM
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+        {/* Action Button */}
+        <div className="pt-2">
           <button
             onClick={() => {
               onClose();
               onNavigate('cover');
             }}
-            className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#48B83B] hover:bg-[#3da131] text-white text-xs font-black shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3.5 px-6 rounded-xl bg-[#48B83B] hover:bg-[#3da131] text-white text-xs sm:text-sm font-black shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]"
           >
             <span>Understood — See Proposal</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
-
-          <button
-            onClick={() => {
-              onClose();
-              onOpenAuthorizeModal();
-            }}
-            className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#FFC107] hover:bg-[#e6ad00] text-slate-900 text-xs font-black shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <Lock className="w-4 h-4 text-slate-900" />
-            <span>Authorize Proposal Agreement</span>
           </button>
         </div>
 
