@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AuditIssues() {
+export default function AuditIssues({ onNavigate, onOpenModal }) {
   const auditTableData = [
     // Technical SEO
     { category: 'Technical SEO', item: 'Robots.txt Configuration', status: 'PASS', finding: 'Your website has active robots.txt file', action: 'Maintain configuration', icon: '✓', badgeStyle: 'bg-[#48B83B] text-white font-extrabold', rowStyle: 'bg-white' },
@@ -35,16 +35,70 @@ export default function AuditIssues() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Clean Header without clutter */}
-        <div className="mb-6">
-          <span className="text-xs font-bold text-[#48B83B] uppercase tracking-wider block font-mono">
-            SECTION 1.0
-          </span>
-          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-            Technical SEO Audit Checklist (bargelloeindhoven.nl)
-          </h2>
-          <p className="text-slate-600 text-xs mt-1">
-            Official website audit findings and Webestone execution strategy.
-          </p>
+        <div className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-5">
+          <div className="space-y-2.5">
+            <span className="text-xs font-bold text-[#48B83B] uppercase tracking-wider block font-mono">
+              SECTION 1.0 • SITE HEALTH DIAGNOSTIC
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug mb-2">
+              Technical SEO Audit Checklist For (
+              <a
+                href="https://bargelloeindhoven.nl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#48B83B] hover:underline inline-block"
+              >
+                bargelloeindhoven.nl
+              </a>
+              )
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed max-w-3xl pt-1">
+              Comprehensive technical evaluation of <strong className="text-slate-900 font-bold">bargelloeindhoven.nl</strong> revealing key structural deficits: missing H1 tags, 5.14% thin text-to-HTML ratio, 9 product images missing ALT tags, and unoptimized Dutch metadata.
+            </p>
+          </div>
+
+          <button
+            onClick={() => onNavigate && onNavigate('roadmap')}
+            className="px-5 py-2.5 rounded-xl bg-[#48B83B] hover:bg-emerald-600 text-white text-xs font-extrabold shadow-2xs transition shrink-0 cursor-pointer flex items-center gap-1.5 self-start md:self-auto"
+          >
+            <span>View Fix Execution Plan</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        {/* Audit Executive Summary Badges */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-emerald-800 uppercase block">Passed Checks</span>
+              <span className="text-lg font-black text-[#48B83B]">4 Checks</span>
+            </div>
+            <span className="w-7 h-7 rounded-full bg-[#48B83B] text-white font-black text-xs flex items-center justify-center shadow-2xs">✓</span>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-between">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-amber-900 uppercase block">Warnings</span>
+              <span className="text-lg font-black text-amber-600">6 Items</span>
+            </div>
+            <span className="w-7 h-7 rounded-full bg-[#FFC107] text-slate-900 font-black text-xs flex items-center justify-center shadow-2xs">!</span>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 flex items-center justify-between">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-red-900 uppercase block">Critical Fails</span>
+              <span className="text-lg font-black text-red-600">5 Issues</span>
+            </div>
+            <span className="w-7 h-7 rounded-full bg-red-600 text-white font-black text-xs flex items-center justify-center shadow-2xs">✕</span>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-slate-500 uppercase block">Desktop Speed</span>
+              <span className="text-lg font-black text-slate-900">Score 98/100</span>
+            </div>
+            <span className="w-7 h-7 rounded-full bg-slate-900 text-white font-black text-[10px] flex items-center justify-center shadow-2xs">⚡</span>
+          </div>
         </div>
 
         {/* Clean Minimalist Audit Table */}
@@ -61,7 +115,11 @@ export default function AuditIssues() {
             </thead>
             <tbody className="divide-y divide-slate-200 text-slate-800">
               {auditTableData.map((row, idx) => (
-                <tr key={idx} className={`transition ${row.rowStyle}`}>
+                <tr
+                  key={idx}
+                  onClick={() => onNavigate && onNavigate('roadmap')}
+                  className={`transition cursor-pointer hover:bg-emerald-50/70 ${row.rowStyle}`}
+                >
                   <td className="py-3.5 px-4 font-mono font-bold text-slate-500 text-[11px] uppercase">{row.category}</td>
                   <td className="py-3.5 px-4 font-extrabold text-slate-900">{row.item}</td>
                   <td className="py-3.5 px-4 text-center">
@@ -70,7 +128,10 @@ export default function AuditIssues() {
                     </span>
                   </td>
                   <td className="py-3.5 px-4 font-medium text-slate-800">{row.finding}</td>
-                  <td className="py-3.5 px-4 font-bold text-[#48B83B]">{row.action}</td>
+                  <td className="py-3.5 px-4 font-bold text-[#48B83B] flex items-center justify-between gap-2">
+                    <span>{row.action}</span>
+                    <span className="text-[10px] text-slate-400 font-mono">→</span>
+                  </td>
                 </tr>
               ))}
             </tbody>

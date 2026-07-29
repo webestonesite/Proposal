@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, FileText, Image as ImageIcon, Target, CheckCircle2, Layers } from 'lucide-react';
+import { Search, FileText, Image as ImageIcon, Target, CheckCircle2, Layers, Clock } from 'lucide-react';
 
 export default function GrowthRoadmap() {
   const months = [
@@ -12,15 +12,10 @@ export default function GrowthRoadmap() {
       seo: [
         'Website SEO Audit & Technical Audit',
         'Competitor Analysis & Keyword Strategy',
-        'Keyword Research for ALL 57 Pages (Products, Categories, Blogs)',
+        'Comprehensive Keyword Research (Products, Categories, Blogs)',
         'Google Search Console (GSC) & GA4 Setup'
       ],
-      content: [
-        'Home Page Content',
-        'Contact Us Page Copy',
-        'Privacy Policy & Refund Policy',
-        'Terms & Conditions Page'
-      ],
+      content: '—',
       images: [
         'Product Image Branding Setup',
         'Master Design Template for Product Images'
@@ -28,36 +23,38 @@ export default function GrowthRoadmap() {
       ads: '—',
       deliverables: [
         'SEO Audit Report',
-        'All 57 Pages Keyword Research Strategy',
-        '5 Website Pages Published',
+        'Comprehensive Keyword Research Strategy',
+        'Technical Audit & Setup Complete',
         'Product Image Design Template'
       ]
     },
     {
       month: 'Month 2',
-      phase: 'On-Page & Products',
-      title: 'Product Content & On-Page SEO',
+      phase: 'Content & On-Page Launch',
+      title: 'Content Writing & On-Page SEO Launch',
       color: 'border-l-4 border-l-emerald-500 bg-white',
       badgeBg: 'bg-emerald-100 text-emerald-800',
       seo: [
-        'Keyword Mapping for 17 Products & Categories',
+        'Keyword Mapping for Product & Category Pages',
         'On-Page SEO (Meta Titles, Descriptions & H1)',
         'Image Alt Tags & Schema Markup',
         'Internal Linking Architecture Setup'
       ],
       content: [
-        '17 Unique Product Pages Copy',
-        'Category Pages Copy (Men, Ladies, Exclusive)',
-        '2 SEO Blog Posts'
+        'Home Page & Foundation Pages Content',
+        'Product Pages Content',
+        'Category Pages Content (Men, Ladies, Exclusive)',
+        'SEO Blog Posts'
       ],
       images: [
-        'Design Custom Product Images for 17 Products'
+        'Design Custom Product Images for Products'
       ],
       ads: '—',
       deliverables: [
-        '17 Product Pages Live (Keyword Optimized)',
-        '17 Product Images Designed',
-        'Category Copy + 2 Blogs'
+        'Home & Foundation Content Live',
+        'Product Pages Live (Keyword Optimized)',
+        'Product Images Designed',
+        'Category Content + SEO Blogs'
       ]
     },
     {
@@ -67,22 +64,22 @@ export default function GrowthRoadmap() {
       color: 'border-l-4 border-l-emerald-500 bg-white',
       badgeBg: 'bg-emerald-100 text-emerald-800',
       seo: [
-        'Keyword Research for Remaining 16 Products',
+        'Keyword Research for Remaining Products',
         'Continued On-Page SEO & Content Tuning',
         'Technical Fixes & Internal Link Building'
       ],
       content: [
-        'Remaining 16 Product Pages Copy',
-        '2 SEO-Optimized Blog Articles'
+        'Remaining Product Pages Content',
+        'SEO-Optimized Blog Articles'
       ],
       images: [
-        'Design Custom Product Images for Remaining 16 Products'
+        'Design Custom Product Images for Remaining Products'
       ],
       ads: '—',
       deliverables: [
-        '16 Product Pages Live (Keyword Optimized)',
-        '16 Product Images Designed',
-        '2 SEO Blog Posts Published'
+        'Product Pages Live (Keyword Optimized)',
+        'Product Images Designed',
+        'SEO Blog Posts Published'
       ]
     },
     {
@@ -92,22 +89,22 @@ export default function GrowthRoadmap() {
       color: 'border-l-4 border-l-emerald-500 bg-white',
       badgeBg: 'bg-emerald-100 text-emerald-800',
       seo: [
-        'Blog Keyword Research & Mapping (4 Blogs)',
+        'Blog Keyword Research & Mapping',
         'Advanced Technical SEO & Core Web Vitals',
         'Advanced Internal Linking & CRO Optimization',
         'Final On-Page Keyword & Audit Review'
       ],
       content: [
-        '4 SEO Blog Articles',
+        'SEO Blog Articles',
         'Review & Optimize All Site Content',
         'Final Content Proofreading'
       ],
-      images: 'Complete 33 Product Portfolio Verified',
+      images: 'Complete Product Portfolio Verified',
       ads: '—',
       deliverables: [
         'Final On-Page SEO Report',
-        '4 SEO Blog Posts Live',
-        '100% Website Content Optimized'
+        'SEO Blog Posts Live',
+        'Website Content Fully Optimized'
       ]
     },
     {
@@ -122,7 +119,7 @@ export default function GrowthRoadmap() {
         'Competitor Backlink Analysis'
       ],
       content: [
-        '2 SEO Blog Posts'
+        'SEO Blog Posts'
       ],
       images: 'Ongoing Asset Maintenance',
       ads: [
@@ -133,7 +130,7 @@ export default function GrowthRoadmap() {
       deliverables: [
         'Backlink Acquisition Report',
         'Google Ads Campaign Active',
-        '2 SEO Blog Articles'
+        'SEO Blog Articles'
       ]
     },
     {
@@ -147,7 +144,7 @@ export default function GrowthRoadmap() {
         'Backlink Monitoring & Authority Growth'
       ],
       content: [
-        '2 SEO Blog Posts'
+        'SEO Blog Posts'
       ],
       images: 'Final Brand Asset Package',
       ads: [
@@ -158,7 +155,7 @@ export default function GrowthRoadmap() {
       deliverables: [
         'Final SEO Growth Report',
         'Google Ads Performance Report',
-        '2 Final SEO Blog Posts'
+        'Final SEO Blog Posts'
       ]
     }
   ];
@@ -166,7 +163,7 @@ export default function GrowthRoadmap() {
   return (
     <section className="py-12 bg-slate-100 border-b border-slate-200" id="roadmap">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="mb-10 text-center max-w-3xl mx-auto animate-fade-up">
           <span className="px-3 py-1 rounded bg-[#48B83B] text-white text-xs font-black uppercase font-mono inline-block mb-2 shadow-xs">
@@ -187,7 +184,7 @@ export default function GrowthRoadmap() {
               <Layers className="w-4 h-4 text-white animate-pulse" />
               Total Project Scope Summary (6 Months)
             </span>
-            <span className="text-slate-900 font-mono text-[11px] bg-[#FFC107] px-2.5 py-0.5 rounded font-black">57 Total Content Deliverables</span>
+            <span className="text-slate-900 font-mono text-[11px] bg-[#FFC107] px-2.5 py-0.5 rounded font-black">Full Content & SEO Deliverables</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 p-4 text-xs">
@@ -197,7 +194,7 @@ export default function GrowthRoadmap() {
                 SEO Scope
               </div>
               <ul className="text-slate-600 space-y-1 font-medium text-[11px]">
-                <li>• <b>Keyword Research for ALL 57 Pages</b></li>
+                <li>• <b>Comprehensive Full-Site Keyword Research</b></li>
                 <li>• Technical SEO Audit & Core Web Vitals</li>
                 <li>• On-Page Meta, Alt & Schema Markup</li>
                 <li>• High-Authority Dutch Backlinks & Outreach</li>
@@ -208,24 +205,24 @@ export default function GrowthRoadmap() {
             <div className="p-3 space-y-1 hover:bg-slate-50 transition-colors duration-200 rounded-lg">
               <div className="font-black text-slate-900 flex items-center gap-1.5 text-xs">
                 <FileText className="w-4 h-4 text-blue-600" />
-                Content Scope (57 Items)
+                Content Scope
               </div>
               <ul className="text-slate-600 space-y-1 font-medium text-[11px]">
-                <li>• 1 Home Page + 4 Policy/Contact Pages</li>
-                <li>• 33 Product Pages</li>
-                <li>• 7 Category Pages (Optional)</li>
-                <li>• 12 SEO Blog Articles</li>
+                <li>• Home Page + Policy & Contact Pages</li>
+                <li>• Product Pages Content</li>
+                <li>• Category Pages Content (Optional)</li>
+                <li>• SEO Blog Articles</li>
               </ul>
             </div>
 
             <div className="p-3 space-y-1 hover:bg-slate-50 transition-colors duration-200 rounded-lg">
               <div className="font-black text-slate-900 flex items-center gap-1.5 text-xs">
                 <ImageIcon className="w-4 h-4 text-purple-600" />
-                Product Images (33 Items)
+                Product Images <span className="text-[10px] text-slate-500 font-bold">(If Needed)</span>
               </div>
               <ul className="text-slate-600 space-y-1 font-medium text-[11px]">
                 <li>• Image Style & Branding Template Setup</li>
-                <li>• 33 Custom Designed Product Images</li>
+                <li>• Custom Designed Product Images (If Needed)</li>
                 <li>• Web Optimization & Alt Tag SEO</li>
               </ul>
             </div>
@@ -254,7 +251,9 @@ export default function GrowthRoadmap() {
                   <th className="py-4 px-4 border border-emerald-500 w-32 bg-[#48B83B]">Month</th>
                   <th className="py-4 px-4 border border-emerald-500 w-52 bg-[#48B83B]">SEO & Technical Tasks</th>
                   <th className="py-4 px-4 border border-emerald-500 w-52 bg-[#48B83B]">Content Writing</th>
-                  <th className="py-4 px-4 border border-emerald-500 w-44 bg-[#48B83B]">Product Images</th>
+                  <th className="py-4 px-4 border border-emerald-500 w-44 bg-[#48B83B]">
+                    Product Images <span className="text-[10px] font-mono text-emerald-100 block tracking-normal normal-case font-extrabold">(If Needed)</span>
+                  </th>
                   <th className="py-4 px-4 border border-emerald-500 w-44 bg-[#48B83B]">Google Ads / Off-Page</th>
                   <th className="py-4 px-4 border border-emerald-500 w-56 bg-[#3ea032]">Key Deliverables</th>
                 </tr>
@@ -262,7 +261,7 @@ export default function GrowthRoadmap() {
               <tbody className="divide-y divide-slate-300 text-slate-800 font-medium">
                 {months.map((m, idx) => (
                   <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80 hover:bg-slate-100/60'}>
-                    
+
                     {/* Month Title */}
                     <td className="py-4 px-4 border border-slate-300 align-top bg-slate-50/50">
                       <span className="font-mono font-black text-slate-900 text-sm block">
@@ -304,7 +303,10 @@ export default function GrowthRoadmap() {
                           ))}
                         </ul>
                       ) : (
-                        <span className="text-slate-400">{m.content}</span>
+                        <div className="py-3 px-2 rounded-lg bg-emerald-50/70 border border-dashed border-emerald-300 text-[#48B83B] text-center font-mono text-[10px] font-extrabold flex items-center justify-center gap-1.5 shadow-2xs">
+                          <Clock className="w-3.5 h-3.5 text-[#48B83B] shrink-0" />
+                          <span>Starts Month 2</span>
+                        </div>
                       )}
                     </td>
 

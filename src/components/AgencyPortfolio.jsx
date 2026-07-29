@@ -7,11 +7,12 @@ export default function AgencyPortfolio() {
 
   const caseStudies = [
     {
-      client: 'Shopify SEO for Vape Stall Dubai',
+      client: 'Shopify SEO for Vape Stall',
       category: 'Digital Marketing & E-Commerce',
       completionDate: 'Feb 9, 2026',
       trafficGrowth: '+420%',
       timeframe: 'Completed: Feb 9, 2026',
+      liveUrl: 'https://vapstall.ae/',
       upworkUrl: 'https://www.upwork.com/agencies/2054887750647587729/modal-portfolio-project?pageTitle=Shopify%20SEO%20for%20Vape%20Stall%20Dubai&preventDismiss=false&_modalInfo=%5B%7B%22navType%22%3A%22modal%22,%22title%22%3A%22Shopify%20SEO%20for%20Vape%20Stall%20Dubai%22,%22modalId%22%3A%221785275586445%22,%22channelName%22%3A%22modal-portfolio-project%22,%22preventDismiss%22%3Afalse%7D%5D&nav_dir=pop',
       overview: 'A comprehensive search engine optimization, technical architecture audit, and organic search growth strategy tailored for Vape Stall Dubai. The project focused on maximizing search visibility, navigating strict regional compliance regulations, and establishing a robust technical foundation for a premium e-commerce vaping platform.',
       highlights: [
@@ -30,6 +31,7 @@ export default function AgencyPortfolio() {
       completionDate: 'Mar 15, 2026',
       trafficGrowth: '+380%',
       timeframe: 'Completed: Mar 15, 2026',
+      liveUrl: 'https://fastit.com.bd/',
       upworkUrl: 'https://www.upwork.com/agencies/2054887750647587729/modal-portfolio-project?nav_dir=pop&pageTitle=Search%20Engine%20Optimization%20for%20FastIT&preventDismiss=false&_modalInfo=%5B%7B%22navType%22%3A%22modal%22,%22title%22%3A%22Search%20Engine%20Optimization%20for%20FastIT%22,%22modalId%22%3A%221785275817524%22,%22channelName%22%3A%22modal-portfolio-project%22,%22preventDismiss%22%3Afalse%7D%5D',
       overview: 'Search engine optimization, comprehensive site audit, and organic search growth strategy for Fast IT, focusing on visibility for their business automation systems. Targeted B2B platforms, small shop owners, and entrepreneurs looking online for reliable retail management software.',
       highlights: [
@@ -48,6 +50,7 @@ export default function AgencyPortfolio() {
       completionDate: 'Jan 2026',
       trafficGrowth: '+310%',
       timeframe: 'Completed: Jan 2026',
+      liveUrl: 'https://vapshopdubai.ae/',
       isLocked: true,
       overview: 'Strategic SEO optimization and local search authority building tailored for Dubai vape shop retail and online delivery. Focused on high-intent transactional keywords, vape pods catalog setup, and regional search compliance.',
       highlights: [
@@ -65,6 +68,7 @@ export default function AgencyPortfolio() {
       completionDate: 'Dec 2025',
       trafficGrowth: '+450%',
       timeframe: 'Completed: Dec 2025',
+      liveUrl: 'https://ostore.ae/',
       isLocked: true,
       overview: 'Full-stack e-commerce search architecture for premium vape pods, disposable devices, and liquid brands. Built custom product template SEO, internal link siloing, and speed optimization.',
       highlights: [
@@ -81,7 +85,7 @@ export default function AgencyPortfolio() {
   return (
     <section className="py-12 bg-white border-b border-slate-200" id="portfolio">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="mb-10 text-center max-w-3xl mx-auto animate-fade-up">
           <span className="px-3 py-1 rounded-full bg-emerald-100 text-[#48B83B] text-xs font-black uppercase tracking-wider font-mono inline-block mb-2">
@@ -117,7 +121,7 @@ export default function AgencyPortfolio() {
             <div className="text-2xl font-black text-slate-900">
               <CountUp end={5000} suffix="+" />
             </div>
-            <div className="text-xs font-bold text-slate-800 mt-0.5">High-Tier Backlinks</div>
+            <div className="text-xs font-bold text-slate-800 mt-0.5">High-Traffic Backlinks</div>
             <div className="text-[11px] text-slate-500 font-medium">High-Quality Niche Authority Links</div>
           </div>
 
@@ -167,29 +171,42 @@ export default function AgencyPortfolio() {
                 </ul>
               </div>
 
-              {cs.upworkUrl ? (
-                <div className="mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                {cs.liveUrl && (
+                  <a
+                    href={cs.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-50 border-2 border-[#48B83B] text-slate-900 hover:bg-[#48B83B] hover:text-white text-xs font-black transition-all shadow-2xs hover:scale-[1.02]"
+                  >
+                    <Globe className="w-3.5 h-3.5 text-[#48B83B] group-hover:text-white" />
+                    <span>Visit Live Website</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+
+                {cs.upworkUrl && (
                   <a
                     href={cs.upworkUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#14a800] hover:bg-[#108a00] text-white text-xs font-black shadow-2xs transition-all hover:scale-[1.02]"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#14a800] hover:bg-[#108a00] text-white text-xs font-black shadow-2xs transition-all hover:scale-[1.02]"
                   >
-                    <span>View Upwork Verified Portfolio Project</span>
+                    <span>Upwork Verified Project</span>
                     <ExternalLink className="w-3.5 h-3.5 text-white" />
                   </a>
-                </div>
-              ) : cs.isLocked ? (
-                <div className="mb-4">
+                )}
+
+                {cs.isLocked && (
                   <button
                     onClick={() => setActiveModalProject(cs)}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-50 border-2 border-[#FFC107] text-slate-900 hover:bg-[#FFC107] text-xs font-black transition-all shadow-2xs cursor-pointer hover:scale-[1.02]"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-amber-50 border-2 border-[#FFC107] text-slate-900 hover:bg-[#FFC107] text-xs font-black transition-all shadow-2xs cursor-pointer hover:scale-[1.02]"
                   >
                     <Lock className="w-3.5 h-3.5 text-amber-700" />
-                    <span>View Private Case Study (Request NDA Access)</span>
+                    <span>Request Full Portfolio Access (NDA)</span>
                   </button>
-                </div>
-              ) : null}
+                )}
+              </div>
 
               {cs.skills && (
                 <div className="pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
@@ -232,7 +249,7 @@ export default function AgencyPortfolio() {
       {activeModalProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-xs animate-fade-in">
           <div className="bg-white rounded-2xl border-2 border-[#48B83B] shadow-2xl max-w-lg w-full p-6 sm:p-8 relative space-y-5 animate-fade-up">
-            
+
             {/* Close Modal Button */}
             <button
               onClick={() => setActiveModalProject(null)}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { DollarSign, ShieldCheck, Clock, Calendar, Globe } from 'lucide-react';
 
-export default function FinancialPolicy() {
+export default function FinancialPolicy({ onOpenModal }) {
   const terms = [
     {
       title: 'Initial Setup Deposit',
@@ -38,7 +38,7 @@ export default function FinancialPolicy() {
               FINANCIAL ENGAGEMENT POLICY
             </h2>
             <p className="text-slate-600 text-sm mt-2 font-medium max-w-2xl mx-auto leading-relaxed">
-              We craft high-quality, SEO-friendly content that connects with your audience and strengthens your brand voice through transparent & structured financial milestones.
+              We craft high-quality, SEO-friendly content that connects with your audience and strengthens your brand voice through transparent & structured financial milestones. Click any stage to authorize.
             </p>
           </div>
 
@@ -47,7 +47,11 @@ export default function FinancialPolicy() {
             {terms.map((t, idx) => {
               const Icon = t.icon;
               return (
-                <div key={idx} className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#48B83B] transition-all shadow-xs hover-lift flex flex-col justify-between">
+                <button
+                  key={idx}
+                  onClick={onOpenModal}
+                  className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#48B83B] hover:bg-emerald-50/40 transition-all shadow-xs hover-lift flex flex-col justify-between text-left cursor-pointer"
+                >
                   <div>
                     <div className={`w-10 h-10 rounded-xl ${t.color} border flex items-center justify-center font-bold mb-4`}>
                       <Icon className="w-5 h-5" />
@@ -58,11 +62,14 @@ export default function FinancialPolicy() {
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-slate-500 font-mono">
-                    <Clock className="w-3.5 h-3.5 text-[#48B83B]" />
-                    <span>Stage 0{idx + 1} Terms</span>
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-[#48B83B] font-mono">
+                    <span className="flex items-center gap-1.5 text-slate-500">
+                      <Clock className="w-3.5 h-3.5 text-[#48B83B]" />
+                      Stage 0{idx + 1} Terms
+                    </span>
+                    <span className="font-extrabold hover:underline">Authorize →</span>
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>

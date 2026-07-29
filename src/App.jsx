@@ -43,35 +43,54 @@ export default function App() {
           </div>
 
           <div id="audit-findings">
-            <AuditIssues />
+            <AuditIssues
+              onNavigate={(id) => scrollToSection(id)}
+              onOpenModal={() => setIsModalOpen(true)}
+            />
           </div>
 
           <div id="summary">
-            <KpiGrid />
+            <KpiGrid
+              onNavigate={(id) => scrollToSection(id)}
+              onOpenModal={() => setIsModalOpen(true)}
+            />
           </div>
 
           <div id="keywords">
-            <KeywordResearch />
+            <KeywordResearch
+              onNavigate={(id) => scrollToSection(id)}
+              onOpenModal={() => setIsModalOpen(true)}
+            />
           </div>
 
           <div id="roadmap">
-            <GrowthRoadmap />
+            <GrowthRoadmap
+              onOpenModal={() => setIsModalOpen(true)}
+            />
           </div>
 
           <div id="work-process">
-            <WorkProcess />
+            <WorkProcess
+              onNavigate={(id) => scrollToSection(id)}
+            />
           </div>
 
           <div id="core-services">
-            <AgencyServices />
+            <AgencyServices
+              onOpenModal={() => setIsModalOpen(true)}
+            />
           </div>
 
           <div id="financial-policy">
-            <FinancialPolicy />
+            <FinancialPolicy
+              onOpenModal={() => setIsModalOpen(true)}
+            />
           </div>
 
           <div id="portfolio">
-            <AgencyPortfolio />
+            <AgencyPortfolio
+              onOpenModal={() => setIsModalOpen(true)}
+            />
           </div>
 
           <ThankYouSection onOpenModal={() => setIsModalOpen(true)} />
@@ -90,7 +109,7 @@ export default function App() {
 
           <div className="flex items-center space-x-2.5 w-full sm:w-auto justify-end">
             <a
-              href="https://wa.me/8801815025322?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20SEO%20Proposal"
+              href="https://wa.me/8801815025322?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20Digital%20Marketing%20Proposal"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-1.5 shadow-xs transition"

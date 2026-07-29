@@ -1,7 +1,7 @@
 import React from 'react';
 import { Search, Compass, Cpu, LineChart, TrendingUp } from 'lucide-react';
 
-export default function WorkProcess() {
+export default function WorkProcess({ onNavigate }) {
   const steps = [
     {
       id: '01',
@@ -11,7 +11,7 @@ export default function WorkProcess() {
       bg: 'bg-[#FFF9DB] border-2 border-[#FFC107]',
       titleColor: 'text-[#1E5631]',
       headerBg: 'bg-[#FFDE59]/40',
-      align: 'top'
+      target: 'audit-findings'
     },
     {
       id: '02',
@@ -21,7 +21,7 @@ export default function WorkProcess() {
       bg: 'bg-[#E8F8F0] border-2 border-[#48B83B]',
       titleColor: 'text-[#1E5631]',
       headerBg: 'bg-[#48B83B]/20',
-      align: 'left'
+      target: 'roadmap'
     },
     {
       id: '03',
@@ -31,7 +31,7 @@ export default function WorkProcess() {
       bg: 'bg-[#FFF9DB] border-2 border-[#FFC107]',
       titleColor: 'text-[#1E5631]',
       headerBg: 'bg-[#FFDE59]/40',
-      align: 'right'
+      target: 'core-services'
     },
     {
       id: '04',
@@ -41,7 +41,7 @@ export default function WorkProcess() {
       bg: 'bg-[#FFF9DB] border-2 border-[#FFC107]',
       titleColor: 'text-[#1E5631]',
       headerBg: 'bg-[#FFDE59]/40',
-      align: 'bottom-left'
+      target: 'summary'
     },
     {
       id: '05',
@@ -51,7 +51,7 @@ export default function WorkProcess() {
       bg: 'bg-[#E8F8F0] border-2 border-[#48B83B]',
       titleColor: 'text-[#1E5631]',
       headerBg: 'bg-[#48B83B]/20',
-      align: 'bottom-right'
+      target: 'portfolio'
     }
   ];
 
@@ -68,7 +68,7 @@ export default function WorkProcess() {
             Our Work Process
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
-            A proven 5-stage strategic workflow engineered for continuous growth, organic authority, and measurable revenue scaling.
+            A proven 5-stage strategic workflow engineered for continuous growth, organic authority, and measurable revenue scaling. Click any stage to explore details.
           </p>
         </div>
 
@@ -77,7 +77,10 @@ export default function WorkProcess() {
           
           {/* Top Stage */}
           <div className="flex justify-center mb-8">
-            <div className="w-full sm:w-80 p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all">
+            <button
+              onClick={() => onNavigate && onNavigate('audit-findings')}
+              className="w-full sm:w-80 p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
+            >
               <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-amber-200">
                 <Search className="w-5 h-5 text-[#1E5631]" />
                 <h3 className="font-extrabold text-base text-[#1E5631]">Discovery and Research</h3>
@@ -85,7 +88,7 @@ export default function WorkProcess() {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 We begin by understanding your business, audience, industry landscape, and growth objectives.
               </p>
-            </div>
+            </button>
           </div>
 
           {/* Central Process Node */}
@@ -98,7 +101,10 @@ export default function WorkProcess() {
 
           {/* Middle Row (Left & Right) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-            <div className="p-5 rounded-2xl bg-[#E8F8F0] border-2 border-[#48B83B] shadow-sm hover-lift transition-all">
+            <button
+              onClick={() => onNavigate && onNavigate('roadmap')}
+              className="p-5 rounded-2xl bg-[#E8F8F0] border-2 border-[#48B83B] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
+            >
               <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-emerald-200">
                 <Compass className="w-5 h-5 text-[#1E5631]" />
                 <h3 className="font-extrabold text-base text-[#1E5631]">Strategy Development</h3>
@@ -106,9 +112,12 @@ export default function WorkProcess() {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 Our team builds a focused digital strategy designed to reach the right audience and support measurable outcomes.
               </p>
-            </div>
+            </button>
 
-            <div className="p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all">
+            <button
+              onClick={() => onNavigate && onNavigate('core-services')}
+              className="p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
+            >
               <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-amber-200">
                 <Cpu className="w-5 h-5 text-[#1E5631]" />
                 <h3 className="font-extrabold text-base text-[#1E5631]">Execution and Optimization</h3>
@@ -116,12 +125,15 @@ export default function WorkProcess() {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 Campaigns, content, and digital assets are developed and continuously refined for performance.
               </p>
-            </div>
+            </button>
           </div>
 
           {/* Bottom Row (Left & Right) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div className="p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all">
+            <button
+              onClick={() => onNavigate && onNavigate('summary')}
+              className="p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
+            >
               <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-amber-200">
                 <LineChart className="w-5 h-5 text-[#1E5631]" />
                 <h3 className="font-extrabold text-base text-[#1E5631]">Measurement and Insights</h3>
@@ -129,9 +141,12 @@ export default function WorkProcess() {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 Performance data is analyzed to understand results, identify opportunities, and guide future improvements using data analytics.
               </p>
-            </div>
+            </button>
 
-            <div className="p-5 rounded-2xl bg-[#E8F8F0] border-2 border-[#48B83B] shadow-sm hover-lift transition-all">
+            <button
+              onClick={() => onNavigate && onNavigate('portfolio')}
+              className="p-5 rounded-2xl bg-[#E8F8F0] border-2 border-[#48B83B] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
+            >
               <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-emerald-200">
                 <TrendingUp className="w-5 h-5 text-[#1E5631]" />
                 <h3 className="font-extrabold text-base text-[#1E5631]">Continuous Growth</h3>
@@ -139,7 +154,7 @@ export default function WorkProcess() {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 Strategies evolve over time to maintain momentum and support long term business growth.
               </p>
-            </div>
+            </button>
           </div>
 
         </div>

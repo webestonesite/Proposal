@@ -32,7 +32,7 @@ export default function Header({ onScrollToSection, onOpenModal }) {
             <div className="hidden sm:flex items-center space-x-2 border-l border-slate-200 pl-3">
               <span className="text-xs font-extrabold text-slate-900">Bargello Eindhoven</span>
               <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-[#48B83B] font-extrabold border border-emerald-300">
-                SEO PROPOSAL
+                DIGITAL MARKETING PROPOSAL
               </span>
             </div>
           </div>

@@ -80,7 +80,7 @@ export default function KpiGrid() {
             SECTION 1.0 • METRIC COMPARISON
           </span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-            Client vs Competitors Metric Comparison & Traffic Share
+            BARGELLO Eindhoven vs Competitors Metric Comparison & Traffic Share
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
             Side-by-side analysis of Bargello Eindhoven vs Parfumado, ICI Paris XL, and Douglas across indexed pages, traffic, keywords, and content depth.
@@ -89,7 +89,7 @@ export default function KpiGrid() {
 
         {/* 2-Column Grid: Table on Left + Pie Chart on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          
+
           {/* 5-Column Comparison Table */}
           <div className="lg:col-span-8 overflow-x-auto border-2 border-[#48B83B] rounded-2xl bg-white shadow-xs">
             <table className="w-full text-left text-xs font-sans">

@@ -6,18 +6,18 @@ export default function KeywordResearch() {
   const [priorityFilter, setPriorityFilter] = useState('ALL');
 
   const keywordsData = [
-    { keyword: 'luxe parfum', volume: 8900, difficulty: 65, priority: 'HIGH', intent: 'Transactional' },
-    { keyword: 'geuren voor vrouwen', volume: 6800, difficulty: 72, priority: 'HIGH', intent: 'Commercial' },
-    { keyword: 'beste parfums vrouwen', volume: 5400, difficulty: 70, priority: 'HIGH', intent: 'Commercial' },
-    { keyword: 'geuren voor mannen', volume: 5200, difficulty: 70, priority: 'HIGH', intent: 'Commercial' },
-    { keyword: 'beste parfums mannen', volume: 4200, difficulty: 68, priority: 'HIGH', intent: 'Commercial' },
-    { keyword: 'parfum cadeau', volume: 3600, difficulty: 50, priority: 'MEDIUM', intent: 'Transactional' },
-    { keyword: 'luxe geuren online', volume: 3200, difficulty: 55, priority: 'HIGH', intent: 'Transactional' },
-    { keyword: 'niche geur', volume: 2100, difficulty: 45, priority: 'HIGH', intent: 'Informational' },
-    { keyword: 'geïnspireerde parfums', volume: 1800, difficulty: 40, priority: 'MEDIUM', intent: 'High Intent' },
-    { keyword: 'niche parfum nederland', volume: 1200, difficulty: 35, priority: 'MEDIUM', intent: 'Local Niche' },
-    { keyword: 'parfum winkel eindhoven', volume: 850, difficulty: 25, priority: 'HIGH', intent: 'Local Intent' },
-    { keyword: 'niche parfumerie brabant', volume: 620, difficulty: 20, priority: 'HIGH', intent: 'Local Intent' },
+    { keyword: 'fragrantica', volume: 22200, difficulty: 36, priority: 'HIGH', intent: 'Informational' },
+    { keyword: 'kayali parfum', volume: 12100, difficulty: 20, priority: 'MEDIUM', intent: 'Commercial' },
+    { keyword: 'valentino parfum', volume: 12100, difficulty: 18, priority: 'EASY', intent: 'Commercial' },
+    { keyword: 'jean paul gaultier parfum', volume: 9900, difficulty: 28, priority: 'HIGH', intent: 'Commercial' },
+    { keyword: 'zadig en voltaire parfum', volume: 9900, difficulty: 16, priority: 'EASY', intent: 'Commercial' },
+    { keyword: 'miss dior parfum', volume: 8100, difficulty: 24, priority: 'MEDIUM', intent: 'Commercial' },
+    { keyword: 'prada parfum', volume: 8000, difficulty: 20, priority: 'MEDIUM', intent: 'Commercial' },
+    { keyword: 'tom ford parfum', volume: 8100, difficulty: 20, priority: 'MEDIUM', intent: 'Commercial' },
+    { keyword: 'parfum dames', volume: 6600, difficulty: 35, priority: 'HIGH', intent: 'Commercial' },
+    { keyword: 'koxal parfum', volume: 2900, difficulty: 41, priority: 'HIGH', intent: 'Transactional' },
+    { keyword: 'skins parfum', volume: 2900, difficulty: 30, priority: 'HIGH', intent: 'Transactional' },
+    { keyword: 'eau de parfum', volume: 2400, difficulty: 38, priority: 'HIGH', intent: 'Informational' },
   ];
 
   const filteredKeywords = keywordsData.filter((item) => {
@@ -27,10 +27,9 @@ export default function KeywordResearch() {
   });
 
   const intentPieSlices = [
-    { name: 'Commercial Intent', val: '21,600 / mo', percent: 43.8, color: '#48B83B' },
-    { name: 'Transactional Intent', val: '15,700 / mo', percent: 31.9, color: '#FFC107' },
-    { name: 'High Niche & Info', val: '10,400 / mo', percent: 21.1, color: '#8B5CF6' },
-    { name: 'Local Eindhoven Intent', val: '1,470 / mo', percent: 3.2, color: '#3B82F6' },
+    { name: 'Commercial Intent', val: '74,800 / mo', percent: 71.1, color: '#48B83B' },
+    { name: 'Informational Intent', val: '24,600 / mo', percent: 23.4, color: '#FFC107' },
+    { name: 'Transactional Intent', val: '5,800 / mo', percent: 5.5, color: '#3B82F6' },
   ];
 
   return (
@@ -46,7 +45,7 @@ export default function KeywordResearch() {
             Top Netherlands Keyword Opportunities & Intent Share
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
-            Top targeted keywords generating over <strong className="text-slate-900 font-black">49,170+ monthly searches</strong> in the Dutch market.
+            Top targeted keywords generating over <strong className="text-slate-900 font-black">105,200+ monthly searches</strong> in the Dutch market.
           </p>
         </div>
 
@@ -63,9 +62,9 @@ export default function KeywordResearch() {
             />
           </div>
 
-          <div className="flex items-center gap-2 text-xs">
+          <div className="flex items-center gap-2 text-xs flex-wrap">
             <span className="font-bold text-slate-600">Priority:</span>
-            {['ALL', 'HIGH', 'MEDIUM'].map((p) => (
+            {['ALL', 'HIGH', 'MEDIUM', 'EASY'].map((p) => (
               <button
                 key={p}
                 onClick={() => setPriorityFilter(p)}
@@ -98,8 +97,19 @@ export default function KeywordResearch() {
               </thead>
               <tbody className="divide-y divide-slate-200 text-slate-800">
                 {filteredKeywords.map((item, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}>
-                    <td className="py-3.5 px-4 font-bold text-slate-900">{item.keyword}</td>
+                  <tr key={idx} className={`transition hover:bg-emerald-50/60 ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`}>
+                    <td className="py-3.5 px-4 font-bold text-slate-900">
+                      <a
+                        href={`https://www.google.nl/search?q=${encodeURIComponent(item.keyword)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[#48B83B] hover:underline flex items-center gap-1.5"
+                        title="Click to see live Google search results"
+                      >
+                        <span>{item.keyword}</span>
+                        <span className="text-[10px] text-slate-400 font-mono">↗</span>
+                      </a>
+                    </td>
                     <td className="py-3.5 px-4 font-mono font-extrabold text-[#48B83B]">
                       {item.volume.toLocaleString()} / mo
                     </td>
@@ -109,7 +119,7 @@ export default function KeywordResearch() {
                         <div className="w-16 h-1.5 bg-slate-200 rounded-full overflow-hidden">
                           <div
                             className={`h-full ${
-                              item.difficulty > 60 ? 'bg-amber-500' : 'bg-[#48B83B]'
+                              item.difficulty > 35 ? 'bg-amber-500' : 'bg-[#48B83B]'
                             }`}
                             style={{ width: `${item.difficulty}%` }}
                           ></div>
@@ -121,6 +131,8 @@ export default function KeywordResearch() {
                         className={`px-2.5 py-0.5 rounded text-[10px] font-extrabold border ${
                           item.priority === 'HIGH'
                             ? 'bg-[#FFC107] text-slate-900 border-amber-300'
+                            : item.priority === 'EASY'
+                            ? 'bg-teal-100 text-teal-900 border-teal-300'
                             : 'bg-emerald-100 text-emerald-900 border-emerald-300'
                         }`}
                       >
@@ -142,14 +154,14 @@ export default function KeywordResearch() {
                 <h3 className="font-extrabold text-sm text-slate-900">Search Intent Share</h3>
               </div>
               <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-[#48B83B]">
-                49K+ TOTAL SEARCHES
+                105K+ TOTAL SEARCHES
               </span>
             </div>
 
             {/* SVG Pie Chart Graphic */}
             <div className="flex justify-center py-2 relative">
               <svg viewBox="0 0 100 100" className="w-44 h-44 -rotate-90 transform drop-shadow-sm">
-                {/* Commercial Intent 43.8% */}
+                {/* Commercial Intent 71.1% */}
                 <circle
                   cx="50"
                   cy="50"
@@ -157,10 +169,10 @@ export default function KeywordResearch() {
                   fill="transparent"
                   stroke="#48B83B"
                   strokeWidth="20"
-                  strokeDasharray="110.0 251.3"
+                  strokeDasharray="178.7 251.3"
                   strokeDashoffset="0"
                 />
-                {/* Transactional Intent 31.9% */}
+                {/* Informational Intent 23.4% */}
                 <circle
                   cx="50"
                   cy="50"
@@ -168,21 +180,10 @@ export default function KeywordResearch() {
                   fill="transparent"
                   stroke="#FFC107"
                   strokeWidth="20"
-                  strokeDasharray="80.1 251.3"
-                  strokeDashoffset="-110.0"
+                  strokeDasharray="58.8 251.3"
+                  strokeDashoffset="-178.7"
                 />
-                {/* High Niche & Info 21.1% */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                  stroke="#8B5CF6"
-                  strokeWidth="20"
-                  strokeDasharray="53.0 251.3"
-                  strokeDashoffset="-190.1"
-                />
-                {/* Local Eindhoven Intent 3.2% */}
+                {/* Transactional Intent 5.5% */}
                 <circle
                   cx="50"
                   cy="50"
@@ -190,14 +191,14 @@ export default function KeywordResearch() {
                   fill="transparent"
                   stroke="#3B82F6"
                   strokeWidth="20"
-                  strokeDasharray="8.0 251.3"
-                  strokeDashoffset="-243.1"
+                  strokeDasharray="13.8 251.3"
+                  strokeDashoffset="-237.5"
                 />
               </svg>
 
               {/* Center Donut Text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
-                <span className="text-xs font-black text-slate-900">49.1K</span>
+                <span className="text-xs font-black text-slate-900">105.2K</span>
                 <span className="text-[9px] text-slate-500 font-bold uppercase font-mono">Monthly Vol</span>
               </div>
             </div>

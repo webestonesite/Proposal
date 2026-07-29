@@ -16,14 +16,14 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
 
           <div className="flex flex-col md:flex-row md:items-start justify-between border-b border-emerald-100 pb-8 mb-8 gap-8">
             <div className="space-y-4 max-w-3xl">
-              <div className="flex items-center space-x-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3">
                 <img
                   src="/webestone_logo.webp"
                   alt="Webestone AI-Powered Digital Marketing Agency"
-                  className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                  className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
                 />
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#48B83B] text-white font-mono text-xs font-bold shadow-xs animate-pulse">
-                  OFFICIAL B2B PROPOSAL • REF: WEB-2026-SEO-07
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#48B83B] text-white font-mono text-[11px] sm:text-xs font-bold shadow-xs animate-pulse leading-snug">
+                  OFFICIAL B2B DIGITAL MARKETING PROPOSAL • REF: WEB-2026-DM-07
                 </span>
               </div>
 
@@ -33,7 +33,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               </h1>
 
               <p className="text-slate-600 text-base font-medium leading-relaxed">
-                Strategic AI-Powered SEO Framework & Niche Dominance Strategy prepared for <strong className="text-slate-900 font-extrabold underline decoration-[#FFC107] underline-offset-4">BARGELLO Eindhoven</strong>.
+                Comprehensive 6-Month <strong className="text-slate-900 font-extrabold underline decoration-[#FFC107] underline-offset-4">Digital Marketing & Growth Proposal</strong> prepared for <strong className="text-slate-900 font-extrabold underline decoration-[#FFC107] underline-offset-4">BARGELLO Eindhoven</strong> covering AI-SEO, Content Writing, Branding Assets, and Google Ads PPC.
               </p>
             </div>
 
@@ -43,9 +43,22 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
                 <span className="text-slate-600 font-semibold">Agency:</span>
                 <img src="/webestone_logo.webp" alt="Webestone" className="h-5 w-auto object-contain" />
               </div>
-              <div className="flex justify-between">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-slate-600 font-semibold shrink-0">Proposal Type:</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-100 text-[#48B83B] font-extrabold text-[11px] border border-emerald-300 text-right leading-snug">
+                  Digital Marketing
+                </span>
+              </div>
+              <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">Prepared For:</span>
-                <strong className="text-slate-900 font-bold">Bargello Eindhoven</strong>
+                <a
+                  href="https://bargelloeindhoven.nl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-900 font-bold hover:text-[#48B83B] hover:underline"
+                >
+                  Bargello Eindhoven
+                </a>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600 font-semibold">Target Market:</span>
@@ -53,7 +66,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               </div>
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">Proposal Date:</span>
-                <strong className="text-slate-900 font-bold">July 28, 2026</strong>
+                <strong className="text-slate-900 font-bold">July 29, 2026</strong>
               </div>
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">Official Website:</span>
@@ -68,14 +81,22 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               </div>
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">Status:</span>
-                <span className="text-[#48B83B] font-extrabold">Official Strategic Plan</span>
+                <button
+                  onClick={() => onNavigate('roadmap')}
+                  className="text-[#48B83B] font-extrabold hover:underline cursor-pointer"
+                >
+                  Official Strategic Plan
+                </button>
               </div>
             </div>
           </div>
 
           {/* Webestone 01-04 Core Strategy Pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3">
+            <button
+              onClick={() => onNavigate('audit-findings')}
+              className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 text-left hover:border-[#48B83B] hover:bg-emerald-50/50 hover:shadow-xs transition cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-[#FFC107] text-slate-900 font-black text-sm flex items-center justify-center shrink-0">
                 01
               </div>
@@ -83,9 +104,12 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
                 <span className="text-xs font-bold text-slate-900 block">Technical SEO Audit</span>
                 <span className="text-[11px] text-slate-500 font-medium">Core Web Vitals & Indexing</span>
               </div>
-            </div>
+            </button>
 
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3">
+            <button
+              onClick={() => onNavigate('keywords')}
+              className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 text-left hover:border-[#48B83B] hover:bg-emerald-50/50 hover:shadow-xs transition cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-[#FFC107] text-slate-900 font-black text-sm flex items-center justify-center shrink-0">
                 02
               </div>
@@ -93,19 +117,25 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
                 <span className="text-xs font-bold text-slate-900 block"> Content Engine</span>
                 <span className="text-[11px] text-slate-500 font-medium">240+ High Intent Pages</span>
               </div>
-            </div>
+            </button>
 
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3">
+            <button
+              onClick={() => onNavigate('roadmap')}
+              className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 text-left hover:border-[#48B83B] hover:bg-emerald-50/50 hover:shadow-xs transition cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-[#FFC107] text-slate-900 font-black text-sm flex items-center justify-center shrink-0">
                 03
               </div>
               <div>
                 <span className="text-xs font-bold text-slate-900 block"> Link Authority</span>
-                <span className="text-[11px] text-slate-500 font-medium">100+ High Tier Backlinks</span>
+                <span className="text-[11px] text-slate-500 font-medium">5000+ High Traffic Backlinks</span>
               </div>
-            </div>
+            </button>
 
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3">
+            <button
+              onClick={() => onNavigate('roadmap')}
+              className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 text-left hover:border-[#48B83B] hover:bg-emerald-50/50 hover:shadow-xs transition cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-[#FFC107] text-slate-900 font-black text-sm flex items-center justify-center shrink-0">
                 04
               </div>
@@ -113,7 +143,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
                 <span className="text-xs font-bold text-slate-900 block">Local Market Dominance</span>
                 <span className="text-[11px] text-slate-500 font-medium">Eindhoven & Brabant SEO</span>
               </div>
-            </div>
+            </button>
           </div>
 
           {/* Clean Action Buttons */}
@@ -241,35 +271,53 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               </span>
 
               <div className="grid grid-cols-1 gap-2.5 text-xs font-bold text-slate-800">
-                <div className="p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] transition-colors shadow-2xs">
+                <button
+                  onClick={() => onNavigate('core-services')}
+                  className="w-full text-left p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] hover:bg-emerald-50/50 transition-all shadow-2xs cursor-pointer"
+                >
                   <span className="text-base">🔍</span>
                   <span>AI-Powered SEO & Technical Audit</span>
-                </div>
+                </button>
 
-                <div className="p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] transition-colors shadow-2xs">
+                <button
+                  onClick={() => onNavigate('core-services')}
+                  className="w-full text-left p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] hover:bg-emerald-50/50 transition-all shadow-2xs cursor-pointer"
+                >
                   <span className="text-base">💻</span>
                   <span>Website Design & Development</span>
-                </div>
+                </button>
 
-                <div className="p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] transition-colors shadow-2xs">
+                <button
+                  onClick={() => onNavigate('core-services')}
+                  className="w-full text-left p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] hover:bg-emerald-50/50 transition-all shadow-2xs cursor-pointer"
+                >
                   <span className="text-base">📱</span>
                   <span>SMM (Social Media Marketing)</span>
-                </div>
+                </button>
 
-                <div className="p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] transition-colors shadow-2xs">
+                <button
+                  onClick={() => onNavigate('core-services')}
+                  className="w-full text-left p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] hover:bg-emerald-50/50 transition-all shadow-2xs cursor-pointer"
+                >
                   <span className="text-base">🎨</span>
                   <span>Brand Identity & Graphic Design</span>
-                </div>
+                </button>
 
-                <div className="p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] transition-colors shadow-2xs">
+                <button
+                  onClick={() => onNavigate('core-services')}
+                  className="w-full text-left p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] hover:bg-emerald-50/50 transition-all shadow-2xs cursor-pointer"
+                >
                   <span className="text-base">✍️</span>
                   <span>Content Creation & Copywriting</span>
-                </div>
+                </button>
 
-                <div className="p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] transition-colors shadow-2xs">
+                <button
+                  onClick={() => onNavigate('core-services')}
+                  className="w-full text-left p-3 bg-white rounded-lg border border-slate-200 flex items-center gap-2.5 hover:border-[#48B83B] hover:bg-emerald-50/50 transition-all shadow-2xs cursor-pointer"
+                >
                   <span className="text-base">📈</span>
                   <span>Full-Stack Growth Strategy</span>
-                </div>
+                </button>
               </div>
             </div>
 
