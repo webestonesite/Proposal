@@ -24,7 +24,7 @@ export default function AgencyServices() {
       desc: 'Moving past basic keywords, we utilize advanced AI search insights, semantic SEO frameworks, and comprehensive entity mapping. We analyze real-time search intent to build structural site authority, improve ranking velocity, and secure long-term organic traffic.',
       items: [
         'SEO (On-Page, Off-Page, Technical SEO, Local SEO)',
-        'Shopify SEO',
+        'E-Commerce SEO',
         'AIO ( AI Overview )',
         'AEO (Answer Engine Optimization)',
         'GEO (Generative Engine Optimization)'
@@ -59,11 +59,11 @@ export default function AgencyServices() {
       ]
     },
     {
-      title: 'Shopify SEO',
+      title: 'E-Commerce SEO',
       icon: ShoppingBag,
-      desc: 'Purpose-built optimization for e-commerce environments. We refine Shopify site architectures, structurally enhance product and collection pages, fix technical crawl errors and optimize schema markup to maximize visibility directly in high-intent commercial search results.',
+      desc: 'Purpose-built optimization for e-commerce environments. We refine e-commerce site architectures, structurally enhance product and collection pages, fix technical crawl errors and optimize schema markup to maximize visibility directly in high-intent commercial search results.',
       items: [
-        'Shopify Technical Crawl Audit',
+        'E-Commerce Technical Crawl Audit',
         'Collection & Product Schema Markup',
         'E-Commerce Conversion Rate Optimization'
       ]

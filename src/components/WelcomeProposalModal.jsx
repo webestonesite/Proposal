@@ -7,7 +7,7 @@ export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeM
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/80 backdrop-blur-sm animate-fadeIn overflow-y-auto">
       <div className="bg-white max-w-2xl w-full rounded-2xl border-2 border-[#48B83B] p-5 sm:p-8 relative space-y-5 shadow-2xl font-sans max-h-[92vh] overflow-y-auto my-auto">
-        
+
         {/* Top Close Button */}
         <button
           onClick={onClose}
@@ -62,7 +62,7 @@ export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeM
 
           <div className="flex justify-between items-center border-b border-emerald-200/60 pb-2">
             <span className="text-slate-600 font-bold">Target Market:</span>
-            <strong className="text-slate-900 font-bold">Netherlands (Eindhoven)</strong>
+            <strong className="text-slate-900 font-bold">Europe (Netherlands)</strong>
           </div>
 
           <div className="flex justify-between items-center border-b border-emerald-200/60 pb-2">

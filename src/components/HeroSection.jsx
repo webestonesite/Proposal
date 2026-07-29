@@ -62,7 +62,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600 font-semibold">Target Market:</span>
-                <strong className="text-slate-900 font-bold">Netherlands (Eindhoven)</strong>
+                <strong className="text-slate-900 font-bold">Europe (Netherlands)</strong>
               </div>
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">Proposal Date:</span>

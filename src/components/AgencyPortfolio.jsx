@@ -7,21 +7,21 @@ export default function AgencyPortfolio() {
 
   const caseStudies = [
     {
-      client: 'Shopify SEO for Vape Stall',
+      client: 'E-Commerce SEO for Vape Stall',
       category: 'Digital Marketing & E-Commerce',
       completionDate: 'Feb 9, 2026',
       trafficGrowth: '+420%',
       timeframe: 'Completed: Feb 9, 2026',
       liveUrl: 'https://vapstall.ae/',
-      upworkUrl: 'https://www.upwork.com/agencies/2054887750647587729/modal-portfolio-project?pageTitle=Shopify%20SEO%20for%20Vape%20Stall%20Dubai&preventDismiss=false&_modalInfo=%5B%7B%22navType%22%3A%22modal%22,%22title%22%3A%22Shopify%20SEO%20for%20Vape%20Stall%20Dubai%22,%22modalId%22%3A%221785275586445%22,%22channelName%22%3A%22modal-portfolio-project%22,%22preventDismiss%22%3Afalse%7D%5D&nav_dir=pop',
+      upworkUrl: 'https://www.upwork.com/agencies/2054887750647587729/modal-portfolio-project?pageTitle=E-Commerce%20SEO%20for%20Vape%20Stall%20Dubai&preventDismiss=false&_modalInfo=%5B%7B%22navType%22%3A%22modal%22,%22title%22%3A%22E-Commerce%20SEO%20for%20Vape%20Stall%20Dubai%22,%22modalId%22%3A%221785275586445%22,%22channelName%22%3A%22modal-portfolio-project%22,%22preventDismiss%22%3Afalse%7D%5D&nav_dir=pop',
       overview: 'A comprehensive search engine optimization, technical architecture audit, and organic search growth strategy tailored for Vape Stall Dubai. The project focused on maximizing search visibility, navigating strict regional compliance regulations, and establishing a robust technical foundation for a premium e-commerce vaping platform.',
       highlights: [
-        'Shopify SEO, Templates & Technical Audit',
+        'E-Commerce SEO, Templates & Technical Audit',
         'Keyword Research & Regional Compliance Setup',
         'Product Catalog Setup & E-Commerce Optimization',
-        'Shopify Marketing & Search Engine Configuration'
+        'E-Commerce Marketing & Search Engine Configuration'
       ],
-      skills: ['Shopify SEO', 'SEO Audit', 'Keyword Research', 'Product Catalog Setup', 'Shopify Marketing'],
+      skills: ['E-Commerce SEO', 'SEO Audit', 'Keyword Research', 'Product Catalog Setup', 'E-Commerce Marketing'],
       tag: 'Featured Case Study #1',
       badgeBg: 'bg-emerald-100 text-emerald-800 border border-emerald-300'
     },
@@ -58,7 +58,7 @@ export default function AgencyPortfolio() {
         'Local Search Ranking in Dubai & UAE Regions',
         'Technical Schema & Product Meta Optimization'
       ],
-      skills: ['Vape SEO', 'Shopify E-Commerce', 'Local Dubai SEO', 'Keyword Research', 'Catalog Optimization'],
+      skills: ['Vape SEO', 'E-Commerce SEO', 'Local Dubai SEO', 'Keyword Research', 'Catalog Optimization'],
       tag: 'Vape Niche Case Study #3',
       badgeBg: 'bg-purple-100 text-purple-900 border border-purple-300'
     },
