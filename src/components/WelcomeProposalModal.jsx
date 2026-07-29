@@ -140,11 +140,11 @@ export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeM
           <button
             onClick={() => {
               onClose();
-              onNavigate('roadmap');
+              onNavigate('cover');
             }}
             className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#48B83B] hover:bg-[#3da131] text-white text-xs font-black shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>Explore 6-Month Execution Plan</span>
+            <span>Understood — See Proposal</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 
