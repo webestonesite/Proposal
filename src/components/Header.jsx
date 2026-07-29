@@ -30,15 +30,15 @@ export default function Header({ onScrollToSection, onOpenModal }) {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs print:hidden">
       
       {/* Top Header Main Row */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 gap-1.5 sm:gap-4">
           
           {/* Official Webestone Logo & Proposal Sub-tag */}
           <div className="flex items-center space-x-2 sm:space-x-3 shrink-0 cursor-pointer" onClick={() => onScrollToSection('cover')}>
             <img
               src="/webestone_logo.webp"
               alt="Webestone Digital Marketing Agency"
-              className="h-7 sm:h-8 w-auto object-contain"
+              className="h-6 sm:h-8 w-auto object-contain"
             />
 
             <div className="hidden md:flex items-center space-x-2 border-l border-slate-200 pl-3">
@@ -52,21 +52,21 @@ export default function Header({ onScrollToSection, onOpenModal }) {
           {/* Action CTAs & Language Dropdown */}
           <div className="flex items-center space-x-1.5 sm:space-x-2.5 shrink-0">
             
-            {/* Language Select Dropdown (Sleek & Compact for Mobile & Desktop) */}
+            {/* Ultra Compact Language Select Dropdown (Zero Overflow on Mobile) */}
             <div className="relative flex items-center shrink-0">
-              <span className="text-xs absolute left-2 pointer-events-none z-10">
+              <span className="text-xs absolute left-1.5 pointer-events-none z-10">
                 {lang === 'nl' ? '🇳🇱' : '🇬🇧'}
               </span>
               <select
                 value={lang}
                 onChange={handleLanguageChange}
-                className="pl-7 pr-6 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 font-extrabold text-xs appearance-none cursor-pointer focus:outline-none focus:border-[#48B83B] transition-all shadow-2xs"
+                className="pl-6 pr-5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 font-extrabold text-[11px] sm:text-xs appearance-none cursor-pointer focus:outline-none focus:border-[#48B83B] transition-all shadow-2xs"
                 aria-label="Select Language"
               >
-                <option value="en" className="bg-white text-slate-900 font-bold py-1">EN (English)</option>
-                <option value="nl" className="bg-white text-slate-900 font-bold py-1">NL (Nederlands)</option>
+                <option value="en" className="bg-white text-slate-900 font-bold py-1">EN</option>
+                <option value="nl" className="bg-white text-slate-900 font-bold py-1">NL</option>
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-600 absolute right-1.5 pointer-events-none" />
+              <ChevronDown className="w-3 h-3 text-slate-600 absolute right-1 pointer-events-none" />
             </div>
 
             <a
@@ -81,9 +81,9 @@ export default function Header({ onScrollToSection, onOpenModal }) {
 
             <button
               onClick={onOpenModal}
-              className="px-2.5 sm:px-4 py-1.5 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition whitespace-nowrap shrink-0 cursor-pointer"
+              className="px-2 sm:px-4 py-1.5 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold text-[11px] sm:text-xs flex items-center gap-1 shadow-xs transition whitespace-nowrap shrink-0 cursor-pointer"
             >
-              <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-900 shrink-0" />
               <span>{t('header.authorizeBtn')}</span>
             </button>
           </div>
@@ -92,13 +92,13 @@ export default function Header({ onScrollToSection, onOpenModal }) {
       </div>
 
       {/* Sub-Header Dedicated Section Navigation Bar (No-Overflow) */}
-      <div className="bg-slate-50/90 border-t border-slate-100 py-1.5 px-3 sm:px-4 overflow-x-auto no-scrollbar">
+      <div className="bg-slate-50/90 border-t border-slate-100 py-1.5 px-2 sm:px-4 overflow-x-auto no-scrollbar">
         <div className="max-w-7xl mx-auto flex items-center justify-start sm:justify-center space-x-1 text-xs font-bold whitespace-nowrap">
           {sections.map((sec) => (
             <button
               key={sec.id}
               onClick={() => onScrollToSection(sec.id)}
-              className="px-2.5 sm:px-3 py-1 rounded-md text-slate-700 hover:text-[#48B83B] hover:bg-white transition-all font-extrabold hover:shadow-2xs text-xs"
+              className="px-2.5 sm:px-3 py-1 rounded-md text-slate-700 hover:text-[#48B83B] hover:bg-white transition-all font-extrabold hover:shadow-2xs text-[11px] sm:text-xs"
             >
               {sec.label}
             </button>
