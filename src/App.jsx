@@ -11,10 +11,12 @@ import FinancialPolicy from './components/FinancialPolicy.jsx';
 import AgencyPortfolio from './components/AgencyPortfolio.jsx';
 import ThankYouSection from './components/ThankYouSection.jsx';
 import ApprovalModal from './components/ApprovalModal.jsx';
+import WelcomeProposalModal from './components/WelcomeProposalModal.jsx';
 import { ShieldCheck, Phone, Globe, MapPin, MessageCircle } from 'lucide-react';
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
 
   const scrollToSection = (sectionId) => {
     const el = document.getElementById(sectionId);
@@ -128,6 +130,14 @@ export default function App() {
           </div>
         </div>
       </div>
+
+      {/* Auto Page-Load Welcome Digital Marketing Proposal Popup Modal */}
+      <WelcomeProposalModal
+        isOpen={isWelcomeModalOpen}
+        onClose={() => setIsWelcomeModalOpen(false)}
+        onOpenAuthorizeModal={() => setIsModalOpen(true)}
+        onNavigate={(id) => scrollToSection(id)}
+      />
 
       {/* Proposal Approval Modal */}
       <ApprovalModal
