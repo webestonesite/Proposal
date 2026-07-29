@@ -83,10 +83,11 @@ export default function Header({ onScrollToSection, onOpenModal }) {
 
             <button
               onClick={onOpenModal}
-              className="px-3 sm:px-4 py-1.5 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition whitespace-nowrap"
+              className="px-2.5 sm:px-4 py-1.5 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition shrink-0 cursor-pointer"
             >
-              <ShieldCheck className="w-4 h-4 text-slate-900" />
-              <span>{t('header.authorizeBtn')}</span>
+              <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
+              <span className="hidden sm:inline">{t('header.authorizeBtn')}</span>
+              <span className="sm:hidden">{lang === 'nl' ? 'Tekenen' : 'Sign'}</span>
             </button>
           </div>
 
