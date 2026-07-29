@@ -328,7 +328,7 @@ export const translations = {
       proposalDateVal: '29 juli 2026',
       website: 'Officiële Website',
       preparedBy: 'Opgesteld Door',
-      preparedByVal: 'Webestone Digital Marketing Agency',
+      preparedByVal: 'Webestone Digitaal Marketing Bureau',
       viewProposal: 'Begrepen — Bekijk Voorstel',
       status: 'Status',
       statusVal: 'Officieel Strategisch Plan',
@@ -343,7 +343,7 @@ export const translations = {
     },
     hero: {
       badge: 'OFFICIEEL B2B DIGITALE MARKETING VOORSTEL • REF: WEB-2026-DM-07',
-      mainTitle: 'Digital Marketing Agency',
+      mainTitle: 'Digitaal Marketing Bureau',
       mainSubTitle: 'Waar Strategie, Technologie & Groei Samenkomen',
       subTitle: 'Uitgebreid 6-maanden Digitale Marketing & Groeivoorstel opgesteld voor BARGELLO Eindhoven met AI-SEO, Content Schrijven, Merkidentiteit en Google Ads PPC.',
       targetMarket: 'Doelmarkt',
@@ -571,12 +571,12 @@ export const translations = {
     },
     thankYou: {
       badge: 'VOORSTEL CONCLUSIE & VERVOLGSTAPPEN',
-      title: 'Bedankt voor het overwegen van Webestone Digital Marketing Agency',
+      title: 'Bedankt voor het overwegen van Webestone Digitaal Marketing Bureau',
       subTitle: 'We kijken ernaar uit om samen te werken met BARGELLO Eindhoven en uw zoekaanwezigheid te transformeren tot marktleider in Nederland.',
       authBtn: 'Autoriseren & Voorstel Ondertekenen',
       whatsappBtn: 'Chat op WhatsApp (+8801815025322)',
       websiteBtn: 'webestone.com',
-      footer: 'Met passie & precisie ontwikkeld door Webestone Agency'
+      footer: 'Met passie & precisie ontwikkeld door Webestone Bureau'
     },
     footer: {
       stickyText: 'Webestone Agency Strategie voor Bargello Eindhoven • 6-Maanden SEO Campagne (Augustus 2026 – Januari 2027)',
