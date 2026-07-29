@@ -12,7 +12,7 @@ import AgencyPortfolio from './components/AgencyPortfolio.jsx';
 import ThankYouSection from './components/ThankYouSection.jsx';
 import ApprovalModal from './components/ApprovalModal.jsx';
 import WelcomeProposalModal from './components/WelcomeProposalModal.jsx';
-import { ShieldCheck, Phone, Globe, MapPin, MessageCircle } from 'lucide-react';
+import { ShieldCheck, Phone, Globe, MapPin, MessageCircle, X } from 'lucide-react';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext.jsx';
 
@@ -20,6 +20,7 @@ function AppContent() {
   const { t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
+  const [isStickyClosed, setIsStickyClosed] = useState(false);
 
   const scrollToSection = (sectionId) => {
     const el = document.getElementById(sectionId);
@@ -103,36 +104,46 @@ function AppContent() {
       </div>
 
       {/* Floating Bottom Sticky Action Bar */}
-      <div className="sticky bottom-0 z-30 bg-slate-900 text-white py-3 px-4 shadow-xl print:hidden">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <div className="flex items-center space-x-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#48B83B] animate-ping"></span>
-            <span className="text-slate-200 font-bold">
-              {t('footer.stickyText')}
-            </span>
-          </div>
+      {!isStickyClosed && (
+        <div className="sticky bottom-0 z-30 bg-slate-900 text-white py-3 px-4 shadow-xl print:hidden transition-all animate-fade-up">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs relative pr-8 sm:pr-0">
+            <div className="flex items-center space-x-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#48B83B] animate-ping shrink-0"></span>
+              <span className="text-slate-200 font-bold leading-tight">
+                {t('footer.stickyText')}
+              </span>
+            </div>
 
-          <div className="flex items-center space-x-2.5 w-full sm:w-auto justify-end">
-            <a
-              href="https://wa.me/8801815025322?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20Digital%20Marketing%20Proposal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4 text-white" />
-              <span>{t('footer.whatsappUs')}</span>
-            </a>
+            <div className="flex items-center space-x-2.5 w-full sm:w-auto justify-end shrink-0">
+              <a
+                href="https://wa.me/8801815025322?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20Digital%20Marketing%20Proposal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer text-xs"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-white" />
+                <span>{t('footer.whatsappUs')}</span>
+              </a>
 
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="px-5 py-2 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer"
-            >
-              <ShieldCheck className="w-4 h-4 text-slate-900" />
-              <span>{t('footer.authorizeProposal')}</span>
-            </button>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer text-xs"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-slate-900" />
+                <span>{t('footer.authorizeProposal')}</span>
+              </button>
+
+              <button
+                onClick={() => setIsStickyClosed(true)}
+                className="p-1 text-slate-400 hover:text-white rounded-full bg-slate-800 hover:bg-slate-700 transition cursor-pointer ml-1"
+                title="Close action bar"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Auto Page-Load Welcome Digital Marketing Proposal Popup Modal */}
       <WelcomeProposalModal
