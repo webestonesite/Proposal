@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { X, CheckCircle, Printer, ShieldCheck, MessageCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function ApprovalModal({ isOpen, onClose }) {
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: 'Bargello Eindhoven Authorized Representative',
@@ -43,20 +45,20 @@ export default function ApprovalModal({ isOpen, onClose }) {
           <>
             <div className="border-b border-slate-200 pb-4">
               <span className="text-[11px] font-bold text-[#48B83B] uppercase tracking-wider font-mono">
-                CONTRACT AUTHORIZATION
+                {t('approvalModal.badge')}
               </span>
               <h3 className="text-xl font-extrabold text-slate-900 mt-1">
-                Official B2B Proposal Authorization
+                {t('approvalModal.title')}
               </h3>
               <p className="text-xs text-slate-600 mt-1">
-                This document constitutes an official B2B strategy agreement between <a href="https://webestone.com" target="_blank" rel="noopener noreferrer" className="text-[#48B83B] font-extrabold hover:underline">Webestone Agency (webestone.com)</a> and <strong className="text-slate-900">Bargello Eindhoven</strong> for the 6-Month Strategic SEO Execution Plan.
+                {t('approvalModal.subTitle')}
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-700 font-bold mb-1">Authorized Representative Name</label>
+                  <label className="block text-slate-700 font-bold mb-1">{t('approvalModal.nameLabel')}</label>
                   <input
                     type="text"
                     required
@@ -67,7 +69,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
                 </div>
 
                 <div>
-                  <label className="block text-slate-700 font-bold mb-1">Title / Designation</label>
+                  <label className="block text-slate-700 font-bold mb-1">{t('approvalModal.titleLabel')}</label>
                   <input
                     type="text"
                     required
@@ -79,7 +81,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
               </div>
 
               <div>
-                <label className="block text-slate-700 font-bold mb-1">Official Business Email</label>
+                <label className="block text-slate-700 font-bold mb-1">{t('approvalModal.emailLabel')}</label>
                 <input
                   type="email"
                   required
@@ -91,7 +93,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
               </div>
 
               <div>
-                <label className="block text-slate-700 font-bold mb-1">Special Notes / Scope Adjustments</label>
+                <label className="block text-slate-700 font-bold mb-1">{t('approvalModal.notesLabel')}</label>
                 <textarea
                   rows="2"
                   placeholder="Any specific target Eindhoven product lines or custom notes..."
@@ -106,8 +108,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
                   <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
                   Direct WhatsApp Authorization Active:
                 </p>
-                <p>• Clicking <strong>Authorize & Sign Proposal</strong> will record approval and open direct WhatsApp chat to <strong>+8801815025322</strong>.</p>
-                <p>• Webestone Performance Guarantee: Doubled outreach if Month 3 targets are unmet.</p>
+                <p>• Direct WhatsApp connection (+8801815025322) to Webestone Agency.</p>
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-200">
@@ -122,10 +123,10 @@ export default function ApprovalModal({ isOpen, onClose }) {
 
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-2 shadow-md transition"
+                  className="px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-2 shadow-md transition cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 text-white" />
-                  Authorize & Send WhatsApp Message
+                  {t('approvalModal.confirmBtn')}
                 </button>
               </div>
             </form>

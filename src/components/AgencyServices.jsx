@@ -1,27 +1,30 @@
 import React from 'react';
 import { CheckSquare, Sparkles, Layers, BarChart3, Bot, Share2, MousePointerClick, ShoppingBag, FileText } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function AgencyServices() {
+  const { t } = useLanguage();
+
   const coreStrengths = [
     {
-      title: 'Full-Stack Architecture',
-      desc: 'We eliminate disjointed marketing efforts. We build a closed-loop digital ecosystem where your website performance, social proof, and organic search presence directly reinforce one another to maximize conversions.'
+      title: t('services.core1Title'),
+      desc: t('services.core1Desc')
     },
     {
-      title: 'Advanced AI Integration',
-      desc: 'Traditional digital methods are reactive. Our workflows utilize sophisticated LLM insights, search entity mapping, and automated asset optimization to predict market shifts and capture high-intent audience segments faster than standard agencies.'
+      title: t('services.core2Title'),
+      desc: t('services.core2Desc')
     },
     {
-      title: 'Data-Backed Execution',
-      desc: 'Every campaign, content strategy, and creative asset we deploy is strictly guided by deep market data analytics, ensuring zero wasted ad spend and transparent performance accountability.'
+      title: t('services.core3Title'),
+      desc: t('services.core3Desc')
     }
   ];
 
   const serviceFrameworks = [
     {
-      title: 'AI SEO Services',
+      title: t('services.s1Title'),
       icon: Bot,
-      desc: 'Moving past basic keywords, we utilize advanced AI search insights, semantic SEO frameworks, and comprehensive entity mapping. We analyze real-time search intent to build structural site authority, improve ranking velocity, and secure long-term organic traffic.',
+      desc: t('services.s1Desc'),
       items: [
         'SEO (On-Page, Off-Page, Technical SEO, Local SEO)',
         'E-Commerce SEO',
@@ -31,9 +34,9 @@ export default function AgencyServices() {
       ]
     },
     {
-      title: 'Social Media Marketing (SMM)',
+      title: t('services.s2Title'),
       icon: Share2,
-      desc: 'Our focus relies on community cultivation, active audience engagement, and high-impact creative distribution to turn casual viewers into loyal brand advocates.',
+      desc: t('services.s2Desc'),
       items: [
         'Brand Strategy & Engagement',
         'Paid Advertising Campaigns',
@@ -46,9 +49,9 @@ export default function AgencyServices() {
       ]
     },
     {
-      title: 'PPC (Pay-Per-Click Advertising)',
+      title: t('services.s3Title'),
       icon: MousePointerClick,
-      desc: 'We run data-driven PPC campaigns to maximize ROI through precise targeting, optimized ads, and continuous performance monitoring.',
+      desc: t('services.s3Desc'),
       items: [
         'Google Ads',
         'Meta Ads',
@@ -59,9 +62,9 @@ export default function AgencyServices() {
       ]
     },
     {
-      title: 'E-Commerce SEO',
+      title: t('services.s4Title'),
       icon: ShoppingBag,
-      desc: 'Purpose-built optimization for e-commerce environments. We refine e-commerce site architectures, structurally enhance product and collection pages, fix technical crawl errors and optimize schema markup to maximize visibility directly in high-intent commercial search results.',
+      desc: t('services.s4Desc'),
       items: [
         'E-Commerce Technical Crawl Audit',
         'Collection & Product Schema Markup',
@@ -69,9 +72,9 @@ export default function AgencyServices() {
       ]
     },
     {
-      title: 'Content Writing',
+      title: t('services.s5Title'),
       icon: FileText,
-      desc: 'Crafting authoritative, deeply researched content engineered for both human readers and search engines. From long-form informational articles to conversion-focused copy, we build brand voice while satisfying search alignment and topical depth.',
+      desc: t('services.s5Desc'),
       items: [
         'Content Writing',
         'Content Marketing',
@@ -88,21 +91,21 @@ export default function AgencyServices() {
         {/* Section Header */}
         <div className="mb-10 text-center max-w-3xl mx-auto animate-fade-up">
           <span className="px-3 py-1 rounded-full bg-emerald-100 text-[#48B83B] text-xs font-black uppercase tracking-wider font-mono inline-block mb-2">
-            SECTION 6.0 • AGENCY CAPABILITIES
+            {t('services.sectionTitle')}
           </span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-            Our Core Strengths & Service Framework
+            {t('services.strengthsHeading')}
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
-            Full-stack digital marketing architecture engineered with AI-driven precision and data-backed execution.
+            {t('services.sectionSub')}
           </p>
         </div>
 
         {/* 1. Core Strengths Banner with Green Dashed Border */}
         <div className="p-6 sm:p-8 rounded-3xl border-2 border-dashed border-[#48B83B] bg-emerald-50/40 mb-10 shadow-2xs">
           <div className="text-center mb-6">
-            <span className="text-[#48B83B] text-xs font-black uppercase font-mono tracking-widest block">OUR CORE STRENGTHS</span>
-            <h3 className="text-2xl font-black text-slate-900 mt-1">Full stack digital marketing</h3>
+            <span className="text-[#48B83B] text-xs font-black uppercase font-mono tracking-widest block">{t('services.strengthsBadge')}</span>
+            <h3 className="text-2xl font-black text-slate-900 mt-1">{t('services.strengthsHeading')}</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -123,7 +126,7 @@ export default function AgencyServices() {
         {/* 2. Core Service Framework Header */}
         <div className="text-center mb-8">
           <div className="inline-block px-6 py-2 rounded-full border-2 border-dashed border-[#48B83B] bg-white text-slate-900 font-black text-lg shadow-xs">
-            Our Core Digital Marketing Service Framework
+            {t('services.frameworkHeading')}
           </div>
         </div>
 
@@ -150,7 +153,7 @@ export default function AgencyServices() {
 
                   {/* Right Checklist Items */}
                   <div className="bg-emerald-50/60 border border-emerald-200 rounded-2xl p-4 shrink-0 min-w-[280px] sm:min-w-[320px]">
-                    <span className="text-[11px] font-black uppercase text-[#48B83B] font-mono block mb-2">DELIVERABLE CHECKLIST</span>
+                    <span className="text-[11px] font-black uppercase text-[#48B83B] font-mono block mb-2">{t('services.checklistHeader')}</span>
                     <div className="space-y-1.5 text-xs font-semibold text-slate-800">
                       {srv.items.map((item, iIdx) => (
                         <div key={iIdx} className="flex items-center gap-2">

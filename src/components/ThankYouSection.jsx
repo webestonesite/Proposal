@@ -1,7 +1,10 @@
 import React from 'react';
 import { Heart, Sparkles, ShieldCheck, MessageCircle, Globe, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function ThankYouSection({ onOpenModal }) {
+  const { t } = useLanguage();
+
   return (
     <section className="py-12 bg-white border-b border-slate-200 relative overflow-hidden" id="thank-you">
       
@@ -16,18 +19,17 @@ export default function ThankYouSection({ onOpenModal }) {
           {/* Animated Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-[#48B83B] text-xs font-mono font-black uppercase tracking-wider animate-bounce">
             <Sparkles className="w-3.5 h-3.5 text-[#FFC107] animate-spin" />
-            <span>PROPOSAL CONCLUSION & NEXT STEPS</span>
+            <span>{t('thankYou.badge')}</span>
           </div>
 
           {/* Thank You Title */}
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Thank You for Considering <br />
-            <span className="text-[#48B83B]">Webestone Digital Marketing Agency</span>
+            {t('thankYou.title')}
           </h2>
 
           {/* Subtitle */}
           <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium leading-relaxed">
-            We are thrilled about the opportunity to partner with <strong className="text-slate-900 font-extrabold underline decoration-[#FFC107] underline-offset-4">BARGELLO Eindhoven</strong> and turn your search presence into a dominant market leader across the Netherlands.
+            {t('thankYou.subTitle')}
           </p>
 
           {/* Action Cards / CTAs */}
@@ -37,7 +39,7 @@ export default function ThankYouSection({ onOpenModal }) {
               className="px-6 py-3.5 rounded-xl bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-sm hover-lift transition"
             >
               <ShieldCheck className="w-4 h-4 text-slate-900" />
-              Authorize & Sign Proposal
+              <span>{t('thankYou.authBtn')}</span>
               <ArrowRight className="w-4 h-4 text-slate-900" />
             </button>
 
@@ -48,7 +50,7 @@ export default function ThankYouSection({ onOpenModal }) {
               className="px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-sm hover-lift transition"
             >
               <MessageCircle className="w-4 h-4" />
-              Chat on WhatsApp (+8801815025322)
+              <span>{t('thankYou.whatsappBtn')}</span>
             </a>
 
             <a
@@ -58,14 +60,13 @@ export default function ThankYouSection({ onOpenModal }) {
               className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-xs sm:text-sm flex items-center gap-2 border-2 border-[#48B83B] transition shadow-2xs"
             >
               <Globe className="w-4 h-4 text-[#48B83B]" />
-              webestone.com
+              <span>{t('thankYou.websiteBtn')}</span>
             </a>
           </div>
 
           {/* Floating Heart / Partnership Tag */}
           <div className="pt-4 text-slate-500 text-xs font-semibold flex items-center justify-center gap-1.5 border-t border-emerald-200/60 max-w-md mx-auto">
-            <span>Engineered with passion & precision by</span>
-            <strong className="text-slate-900 font-bold">Webestone Agency</strong>
+            <span>{t('thankYou.footer')}</span>
             <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 animate-pulse" />
           </div>
 

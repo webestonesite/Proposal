@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { ExternalLink, TrendingUp, Award, CheckCircle2, Star, ArrowRight, ShieldCheck, Lock, X, Phone, Mail, Globe, MessageSquare } from 'lucide-react';
 import CountUp from './CountUp';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function AgencyPortfolio() {
+  const { t } = useLanguage();
   const [activeModalProject, setActiveModalProject] = useState(null);
 
   const caseStudies = [
     {
-      client: 'E-Commerce SEO for Vape Stall',
+      client: t('portfolio.case1Title'),
       category: 'Digital Marketing & E-Commerce',
       completionDate: 'Feb 9, 2026',
       trafficGrowth: '+420%',
       timeframe: 'Completed: Feb 9, 2026',
       liveUrl: 'https://vapstall.ae/',
       upworkUrl: 'https://www.upwork.com/agencies/2054887750647587729/modal-portfolio-project?pageTitle=E-Commerce%20SEO%20for%20Vape%20Stall%20Dubai&preventDismiss=false&_modalInfo=%5B%7B%22navType%22%3A%22modal%22,%22title%22%3A%22E-Commerce%20SEO%20for%20Vape%20Stall%20Dubai%22,%22modalId%22%3A%221785275586445%22,%22channelName%22%3A%22modal-portfolio-project%22,%22preventDismiss%22%3Afalse%7D%5D&nav_dir=pop',
-      overview: 'A comprehensive search engine optimization, technical architecture audit, and organic search growth strategy tailored for Vape Stall Dubai. The project focused on maximizing search visibility, navigating strict regional compliance regulations, and establishing a robust technical foundation for a premium e-commerce vaping platform.',
+      overview: t('portfolio.case1Desc'),
       highlights: [
         'E-Commerce SEO, Templates & Technical Audit',
         'Keyword Research & Regional Compliance Setup',
@@ -26,14 +28,14 @@ export default function AgencyPortfolio() {
       badgeBg: 'bg-emerald-100 text-emerald-800 border border-emerald-300'
     },
     {
-      client: 'Search Engine Optimization for FastIT',
+      client: t('portfolio.case2Title'),
       category: 'Digital Marketing & B2B Software',
       completionDate: 'Mar 15, 2026',
       trafficGrowth: '+380%',
       timeframe: 'Completed: Mar 15, 2026',
       liveUrl: 'https://fastit.com.bd/',
       upworkUrl: 'https://www.upwork.com/agencies/2054887750647587729/modal-portfolio-project?nav_dir=pop&pageTitle=Search%20Engine%20Optimization%20for%20FastIT&preventDismiss=false&_modalInfo=%5B%7B%22navType%22%3A%22modal%22,%22title%22%3A%22Search%20Engine%20Optimization%20for%20FastIT%22,%22modalId%22%3A%221785275817524%22,%22channelName%22%3A%22modal-portfolio-project%22,%22preventDismiss%22%3Afalse%7D%5D',
-      overview: 'Search engine optimization, comprehensive site audit, and organic search growth strategy for Fast IT, focusing on visibility for their business automation systems. Targeted B2B platforms, small shop owners, and entrepreneurs looking online for reliable retail management software.',
+      overview: t('portfolio.case2Desc'),
       highlights: [
         'SEO Audit, Keyword Research & Competitor Analysis',
         'Technical SEO Setup & Structural Guidelines',
@@ -45,14 +47,14 @@ export default function AgencyPortfolio() {
       badgeBg: 'bg-blue-100 text-blue-900 border border-blue-300'
     },
     {
-      client: 'Vape Shop Dubai — Organic Ranking & Local Authority',
+      client: t('portfolio.case3Title'),
       category: 'E-Commerce & Regional Dubai Vape Market',
       completionDate: 'Jan 2026',
       trafficGrowth: '+310%',
       timeframe: 'Completed: Jan 2026',
       liveUrl: 'https://vapshopdubai.ae/',
       isLocked: true,
-      overview: 'Strategic SEO optimization and local search authority building tailored for Dubai vape shop retail and online delivery. Focused on high-intent transactional keywords, vape pods catalog setup, and regional search compliance.',
+      overview: t('portfolio.case3Desc'),
       highlights: [
         'Vape Pods & E-Liquid Catalog SEO Architecture',
         'Local Search Ranking in Dubai & UAE Regions',
@@ -89,13 +91,13 @@ export default function AgencyPortfolio() {
         {/* Section Header */}
         <div className="mb-10 text-center max-w-3xl mx-auto animate-fade-up">
           <span className="px-3 py-1 rounded-full bg-emerald-100 text-[#48B83B] text-xs font-black uppercase tracking-wider font-mono inline-block mb-2">
-            SECTION 8.0 • AGENCY PORTFOLIO
+            {t('portfolio.badge')}
           </span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-            Proven Client Results & Case Studies
+            {t('portfolio.title')}
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
-            Real performance benchmarks achieved across e-commerce, local businesses, and full-stack digital marketing campaigns.
+            {t('portfolio.subTitle')}
           </p>
         </div>
 
@@ -105,32 +107,32 @@ export default function AgencyPortfolio() {
             <div className="text-2xl font-black text-[#48B83B]">
               <CountUp end={100} suffix="+" />
             </div>
-            <div className="text-xs font-bold text-slate-800 mt-0.5">Successful Projects</div>
-            <div className="text-[11px] text-slate-500 font-medium">Delivered worldwide</div>
+            <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat1Title')}</div>
+            <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat1Sub')}</div>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-slate-900">
               <CountUp prefix="+" end={350} suffix="%" />
             </div>
-            <div className="text-xs font-bold text-slate-800 mt-0.5">Avg. Organic Traffic</div>
-            <div className="text-[11px] text-slate-500 font-medium">Within 6 months</div>
+            <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat2Title')}</div>
+            <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat2Sub')}</div>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-slate-900">
               <CountUp end={5000} suffix="+" />
             </div>
-            <div className="text-xs font-bold text-slate-800 mt-0.5">High-Traffic Backlinks</div>
-            <div className="text-[11px] text-slate-500 font-medium">High-Quality Niche Authority Links</div>
+            <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat3Title')}</div>
+            <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat3Sub')}</div>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-[#48B83B]">
               <CountUp end={98} suffix="%" />
             </div>
-            <div className="text-xs font-bold text-slate-800 mt-0.5">Client Retention</div>
-            <div className="text-[11px] text-slate-500 font-medium">Long-term growth partners</div>
+            <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat4Title')}</div>
+            <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat4Sub')}</div>
           </div>
         </div>
 
@@ -180,7 +182,7 @@ export default function AgencyPortfolio() {
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-50 border-2 border-[#48B83B] text-slate-900 hover:bg-[#48B83B] hover:text-white text-xs font-black transition-all shadow-2xs hover:scale-[1.02]"
                   >
                     <Globe className="w-3.5 h-3.5 text-[#48B83B] group-hover:text-white" />
-                    <span>Visit Live Website</span>
+                    <span>{t('portfolio.visitLive')}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 )}
@@ -192,7 +194,7 @@ export default function AgencyPortfolio() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#14a800] hover:bg-[#108a00] text-white text-xs font-black shadow-2xs transition-all hover:scale-[1.02]"
                   >
-                    <span>Upwork Verified Project</span>
+                    <span>{t('portfolio.upworkProject')}</span>
                     <ExternalLink className="w-3.5 h-3.5 text-white" />
                   </a>
                 )}
@@ -203,7 +205,7 @@ export default function AgencyPortfolio() {
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-amber-50 border-2 border-[#FFC107] text-slate-900 hover:bg-[#FFC107] text-xs font-black transition-all shadow-2xs cursor-pointer hover:scale-[1.02]"
                   >
                     <Lock className="w-3.5 h-3.5 text-amber-700" />
-                    <span>Request Full Portfolio Access (NDA)</span>
+                    <span>{t('portfolio.requestNda')}</span>
                   </button>
                 )}
               </div>
@@ -225,21 +227,21 @@ export default function AgencyPortfolio() {
         <div className="bg-white text-slate-900 border-2 border-[#48B83B] rounded-2xl p-8 max-w-4xl mx-auto shadow-sm animate-fade-up hover-lift flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="text-left space-y-1.5">
             <span className="px-3 py-1 rounded bg-emerald-100 text-[#48B83B] text-xs font-black uppercase tracking-wider font-mono inline-block">
-              OFFICIAL AGENCY PORTFOLIO
+              {t('portfolio.agencyVaultBadge')}
             </span>
-            <h4 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Want to see more Webestone Case Studies & Projects?</h4>
-            <p className="text-xs text-slate-600 font-medium leading-relaxed">Explore full client testimonials, website designs, e-commerce case studies, and live SEO growth reports.</p>
+            <h4 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{t('portfolio.agencyVaultTitle')}</h4>
+            <p className="text-xs text-slate-600 font-medium leading-relaxed">{t('portfolio.agencyVaultSub')}</p>
           </div>
 
           <button
             onClick={() => setActiveModalProject({
-              client: 'Full Webestone Agency Portfolio Vault & Case Studies',
-              overview: 'Complete collection of 100+ SEO, E-Commerce, and Growth Marketing case studies across global markets.'
+              client: t('portfolio.agencyVaultTitle'),
+              overview: t('portfolio.agencyVaultSub')
             })}
             className="px-6 py-3.5 rounded-xl bg-amber-50 border-2 border-[#FFC107] text-slate-900 hover:bg-[#FFC107] font-extrabold text-xs flex items-center gap-2 shrink-0 shadow-xs transition-transform hover:scale-105 cursor-pointer"
           >
             <Lock className="w-4 h-4 text-amber-700" />
-            <span>Request Full Portfolio Access (NDA)</span>
+            <span>{t('portfolio.requestNda')}</span>
           </button>
         </div>
 

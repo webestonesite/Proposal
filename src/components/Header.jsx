@@ -1,17 +1,20 @@
 import React from 'react';
-import { ShieldCheck, Globe } from 'lucide-react';
+import { ShieldCheck, Globe, Languages } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function Header({ onScrollToSection, onOpenModal }) {
+  const { lang, toggleLanguage, t } = useLanguage();
+
   const sections = [
-    { id: 'cover', label: 'Cover' },
-    { id: 'audit-findings', label: '1.0 Audit' },
-    { id: 'summary', label: '2.0 Benchmark' },
-    { id: 'keywords', label: '3.0 Keywords' },
-    { id: 'roadmap', label: '4.0 Strategy' },
-    { id: 'work-process', label: '5.0 Process' },
-    { id: 'core-services', label: '6.0 Services' },
-    { id: 'financial-policy', label: '7.0 Terms' },
-    { id: 'portfolio', label: '8.0 Portfolio' },
+    { id: 'cover', label: t('header.cover') },
+    { id: 'audit-findings', label: t('header.audit') },
+    { id: 'summary', label: t('header.benchmark') },
+    { id: 'keywords', label: t('header.keywords') },
+    { id: 'roadmap', label: t('header.strategy') },
+    { id: 'work-process', label: t('header.process') },
+    { id: 'core-services', label: t('header.services') },
+    { id: 'financial-policy', label: t('header.terms') },
+    { id: 'portfolio', label: t('header.portfolio') },
   ];
 
   return (
@@ -32,29 +35,58 @@ export default function Header({ onScrollToSection, onOpenModal }) {
             <div className="hidden sm:flex items-center space-x-2 border-l border-slate-200 pl-3">
               <span className="text-xs font-extrabold text-slate-900">Bargello Eindhoven</span>
               <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-[#48B83B] font-extrabold border border-emerald-300">
-                DIGITAL MARKETING PROPOSAL
+                {t('header.proposalTag')}
               </span>
             </div>
           </div>
 
-          {/* Action CTAs */}
+          {/* Action CTAs & Language Switcher */}
           <div className="flex items-center space-x-2 shrink-0">
+            
+            {/* Language Switcher Pill */}
+            <div className="flex items-center p-0.5 rounded-lg bg-slate-100 border border-slate-200">
+              <button
+                onClick={() => toggleLanguage('en')}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-extrabold transition-all ${
+                  lang === 'en'
+                    ? 'bg-white text-slate-900 shadow-xs border border-slate-200'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+                title="Switch to English"
+              >
+                <span>🇬🇧</span>
+                <span>EN</span>
+              </button>
+              <button
+                onClick={() => toggleLanguage('nl')}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-extrabold transition-all ${
+                  lang === 'nl'
+                    ? 'bg-[#48B83B] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+                title="Schakel over naar Nederlands"
+              >
+                <span>🇳🇱</span>
+                <span>NL</span>
+              </button>
+            </div>
+
             <a
               href="https://webestone.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-[#48B83B] hover:bg-emerald-100 font-extrabold text-xs transition border border-emerald-200"
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-[#48B83B] hover:bg-emerald-100 font-extrabold text-xs transition border border-emerald-200"
             >
               <Globe className="w-3.5 h-3.5 text-[#48B83B]" />
-              <span className="hidden sm:inline">webestone.com</span>
+              <span>webestone.com</span>
             </a>
 
             <button
               onClick={onOpenModal}
-              className="px-4 py-1.5 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition whitespace-nowrap"
+              className="px-3 sm:px-4 py-1.5 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition whitespace-nowrap"
             >
               <ShieldCheck className="w-4 h-4 text-slate-900" />
-              Authorize Proposal
+              <span>{t('header.authorizeBtn')}</span>
             </button>
           </div>
 

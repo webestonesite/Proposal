@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { Search, Flame, Target, PieChart, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function KeywordResearch() {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [priorityFilter, setPriorityFilter] = useState('ALL');
 
   const keywordsData = [
-    { keyword: 'fragrantica', volume: 22200, difficulty: 36, priority: 'HIGH', intent: 'Informational' },
-    { keyword: 'kayali parfum', volume: 12100, difficulty: 20, priority: 'MEDIUM', intent: 'Commercial' },
-    { keyword: 'valentino parfum', volume: 12100, difficulty: 18, priority: 'EASY', intent: 'Commercial' },
-    { keyword: 'jean paul gaultier parfum', volume: 9900, difficulty: 28, priority: 'HIGH', intent: 'Commercial' },
-    { keyword: 'zadig en voltaire parfum', volume: 9900, difficulty: 16, priority: 'EASY', intent: 'Commercial' },
-    { keyword: 'miss dior parfum', volume: 8100, difficulty: 24, priority: 'MEDIUM', intent: 'Commercial' },
-    { keyword: 'prada parfum', volume: 8000, difficulty: 20, priority: 'MEDIUM', intent: 'Commercial' },
-    { keyword: 'tom ford parfum', volume: 8100, difficulty: 20, priority: 'MEDIUM', intent: 'Commercial' },
-    { keyword: 'parfum dames', volume: 6600, difficulty: 35, priority: 'HIGH', intent: 'Commercial' },
-    { keyword: 'koxal parfum', volume: 2900, difficulty: 41, priority: 'HIGH', intent: 'Transactional' },
-    { keyword: 'skins parfum', volume: 2900, difficulty: 30, priority: 'HIGH', intent: 'Transactional' },
-    { keyword: 'eau de parfum', volume: 2400, difficulty: 38, priority: 'HIGH', intent: 'Informational' },
+    { keyword: 'fragrantica', volume: 22200, difficulty: 36, priority: 'HIGH', intentKey: 'keywords.intentInformational' },
+    { keyword: 'kayali parfum', volume: 12100, difficulty: 20, priority: 'MEDIUM', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'valentino parfum', volume: 12100, difficulty: 18, priority: 'EASY', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'jean paul gaultier parfum', volume: 9900, difficulty: 28, priority: 'HIGH', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'zadig en voltaire parfum', volume: 9900, difficulty: 16, priority: 'EASY', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'miss dior parfum', volume: 8100, difficulty: 24, priority: 'MEDIUM', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'prada parfum', volume: 8000, difficulty: 20, priority: 'MEDIUM', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'tom ford parfum', volume: 8100, difficulty: 20, priority: 'MEDIUM', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'parfum dames', volume: 6600, difficulty: 35, priority: 'HIGH', intentKey: 'keywords.intentCommercial' },
+    { keyword: 'koxal parfum', volume: 2900, difficulty: 41, priority: 'HIGH', intentKey: 'keywords.intentTransactional' },
+    { keyword: 'skins parfum', volume: 2900, difficulty: 30, priority: 'HIGH', intentKey: 'keywords.intentTransactional' },
+    { keyword: 'eau de parfum', volume: 2400, difficulty: 38, priority: 'HIGH', intentKey: 'keywords.intentInformational' },
   ];
 
   const filteredKeywords = keywordsData.filter((item) => {
@@ -27,9 +29,9 @@ export default function KeywordResearch() {
   });
 
   const intentPieSlices = [
-    { name: 'Commercial Intent', val: '74,800 / mo', percent: 71.1, color: '#48B83B' },
-    { name: 'Informational Intent', val: '24,600 / mo', percent: 23.4, color: '#FFC107' },
-    { name: 'Transactional Intent', val: '5,800 / mo', percent: 5.5, color: '#3B82F6' },
+    { name: t('keywords.intentCommercial'), val: '74,800 / mo', percent: 71.1, color: '#48B83B' },
+    { name: t('keywords.intentInformational'), val: '24,600 / mo', percent: 23.4, color: '#FFC107' },
+    { name: t('keywords.intentTransactional'), val: '5,800 / mo', percent: 5.5, color: '#3B82F6' },
   ];
 
   return (
@@ -39,13 +41,13 @@ export default function KeywordResearch() {
         {/* Section Header */}
         <div className="mb-8 text-center max-w-3xl mx-auto">
           <span className="px-3 py-1 rounded-full bg-emerald-100 text-[#48B83B] text-xs font-black uppercase tracking-wider font-mono inline-block mb-2">
-            SECTION 3.0 • KEYWORD OPPORTUNITIES
+            {t('keywords.badge')}
           </span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-            Top Netherlands Keyword Opportunities & Intent Share
+            {t('keywords.title')}
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
-            Top targeted keywords generating over <strong className="text-slate-900 font-black">105,200+ monthly searches</strong> in the Dutch market.
+            {t('keywords.subTitle')}
           </p>
         </div>
 
@@ -55,7 +57,7 @@ export default function KeywordResearch() {
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search Dutch keywords..."
+              placeholder={t('keywords.searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs bg-white focus:outline-none focus:border-[#48B83B] font-medium"
@@ -63,18 +65,23 @@ export default function KeywordResearch() {
           </div>
 
           <div className="flex items-center gap-2 text-xs flex-wrap">
-            <span className="font-bold text-slate-600">Priority:</span>
-            {['ALL', 'HIGH', 'MEDIUM', 'EASY'].map((p) => (
+            <span className="font-bold text-slate-600">{t('keywords.priorityLabel')}</span>
+            {[
+              { id: 'ALL', label: t('keywords.filterAll') },
+              { id: 'HIGH', label: t('keywords.filterHigh') },
+              { id: 'MEDIUM', label: t('keywords.filterMed') },
+              { id: 'EASY', label: t('keywords.filterEasy') },
+            ].map((p) => (
               <button
-                key={p}
-                onClick={() => setPriorityFilter(p)}
-                className={`px-3 py-1.5 rounded font-extrabold transition ${
-                  priorityFilter === p
+                key={p.id}
+                onClick={() => setPriorityFilter(p.id)}
+                className={`px-3 py-1.5 rounded font-extrabold transition cursor-pointer ${
+                  priorityFilter === p.id
                     ? 'bg-[#48B83B] text-white shadow-2xs'
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                {p}
+                {p.label}
               </button>
             ))}
           </div>
@@ -88,11 +95,11 @@ export default function KeywordResearch() {
             <table className="w-full text-left text-xs font-sans">
               <thead className="bg-[#48B83B] text-white uppercase tracking-wider font-extrabold text-[11px]">
                 <tr>
-                  <th className="py-3.5 px-4">Target Dutch Keyword</th>
-                  <th className="py-3.5 px-4">Monthly Search Volume</th>
-                  <th className="py-3.5 px-4">Difficulty (KD)</th>
-                  <th className="py-3.5 px-4">Priority Tag</th>
-                  <th className="py-3.5 px-4">Search Intent</th>
+                  <th className="py-3.5 px-4">{t('keywords.colKeyword')}</th>
+                  <th className="py-3.5 px-4">{t('keywords.colVolume')}</th>
+                  <th className="py-3.5 px-4">{t('keywords.colDifficulty')}</th>
+                  <th className="py-3.5 px-4">{t('keywords.colPriority')}</th>
+                  <th className="py-3.5 px-4">{t('keywords.colIntent')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 text-slate-800">
@@ -136,10 +143,10 @@ export default function KeywordResearch() {
                             : 'bg-emerald-100 text-emerald-900 border-emerald-300'
                         }`}
                       >
-                        {item.priority}
+                        {item.priority === 'HIGH' ? t('keywords.filterHigh') : item.priority === 'EASY' ? t('keywords.filterEasy') : t('keywords.filterMed')}
                       </span>
                     </td>
-                    <td className="py-3.5 px-4 font-medium text-slate-600">{item.intent}</td>
+                    <td className="py-3.5 px-4 font-medium text-slate-600">{t(item.intentKey)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -151,17 +158,16 @@ export default function KeywordResearch() {
             <div className="flex items-center justify-between pb-3 border-b border-slate-200">
               <div className="flex items-center gap-2">
                 <PieChart className="w-5 h-5 text-[#48B83B]" />
-                <h3 className="font-extrabold text-sm text-slate-900">Search Intent Share</h3>
+                <h3 className="font-extrabold text-sm text-slate-900">{t('keywords.pieTitle')}</h3>
               </div>
               <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-[#48B83B]">
-                105K+ TOTAL SEARCHES
+                {t('keywords.pieTotal')}
               </span>
             </div>
 
             {/* SVG Pie Chart Graphic */}
             <div className="flex justify-center py-2 relative">
               <svg viewBox="0 0 100 100" className="w-44 h-44 -rotate-90 transform drop-shadow-sm">
-                {/* Commercial Intent 71.1% */}
                 <circle
                   cx="50"
                   cy="50"
@@ -172,7 +178,6 @@ export default function KeywordResearch() {
                   strokeDasharray="178.7 251.3"
                   strokeDashoffset="0"
                 />
-                {/* Informational Intent 23.4% */}
                 <circle
                   cx="50"
                   cy="50"
@@ -183,7 +188,6 @@ export default function KeywordResearch() {
                   strokeDasharray="58.8 251.3"
                   strokeDashoffset="-178.7"
                 />
-                {/* Transactional Intent 5.5% */}
                 <circle
                   cx="50"
                   cy="50"
@@ -199,7 +203,7 @@ export default function KeywordResearch() {
               {/* Center Donut Text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
                 <span className="text-xs font-black text-slate-900">105.2K</span>
-                <span className="text-[9px] text-slate-500 font-bold uppercase font-mono">Monthly Vol</span>
+                <span className="text-[9px] text-slate-500 font-bold uppercase font-mono">{t('keywords.donutLabel')}</span>
               </div>
             </div>
 
@@ -223,7 +227,8 @@ export default function KeywordResearch() {
             <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-[11px] font-medium leading-tight flex items-start gap-2">
               <CheckCircle2 className="w-4 h-4 text-[#48B83B] shrink-0 mt-0.5" />
               <span>
-                <strong>75.7% Commercial & Transactional Intent:</strong> Dutch users actively searching for perfume purchases will be routed to Bargello Eindhoven high-converting pages.
+                <strong className="font-extrabold">{t('keywords.strategyBoxTitle')} </strong>
+                {t('keywords.strategyBoxBody')}
               </span>
             </div>
 

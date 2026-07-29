@@ -14,7 +14,10 @@ import ApprovalModal from './components/ApprovalModal.jsx';
 import WelcomeProposalModal from './components/WelcomeProposalModal.jsx';
 import { ShieldCheck, Phone, Globe, MapPin, MessageCircle } from 'lucide-react';
 
-export default function App() {
+import { LanguageProvider, useLanguage } from './context/LanguageContext.jsx';
+
+function AppContent() {
+  const { t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
 
@@ -26,7 +29,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#FFC107] selection:text-slate-900 overflow-x-hidden flex flex-col justify-between">
+    <div className="min-h-screen bg-slate-100 text-slate-800 font-sans selection:bg-[#48B83B] selection:text-white flex flex-col justify-between">
       
       <div>
         {/* Navigation Header */}
@@ -105,7 +108,7 @@ export default function App() {
           <div className="flex items-center space-x-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#48B83B] animate-ping"></span>
             <span className="text-slate-200 font-bold">
-              Webestone Agency Strategy for Bargello Eindhoven • 6-Month SEO Campaign (August 2026 – January 2027)
+              {t('footer.stickyText')}
             </span>
           </div>
 
@@ -114,18 +117,18 @@ export default function App() {
               href="https://wa.me/8801815025322?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20Digital%20Marketing%20Proposal"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-1.5 shadow-xs transition"
+              className="px-4 py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 text-white" />
-              WhatsApp Us
+              <span>{t('footer.whatsappUs')}</span>
             </a>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-5 py-2 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold flex items-center gap-1.5 shadow-xs transition"
+              className="px-5 py-2 rounded-lg bg-[#FFC107] hover:bg-amber-400 text-slate-900 font-extrabold flex items-center gap-1.5 shadow-xs transition cursor-pointer"
             >
               <ShieldCheck className="w-4 h-4 text-slate-900" />
-              Authorize Proposal
+              <span>{t('footer.authorizeProposal')}</span>
             </button>
           </div>
         </div>
@@ -176,16 +179,24 @@ export default function App() {
 
             <span className="flex items-center gap-1.5 text-emerald-100">
               <MapPin className="w-4 h-4 text-amber-300" />
-              <span>Offices: Perth (Primary), Evora & London</span>
+              <span>{t('footer.offices')}</span>
             </span>
           </div>
 
           <p className="text-emerald-50 text-[11px] font-semibold shrink-0">
-            © 2026 Webestone Agency. All Rights Reserved.
+            {t('footer.rights')}
           </p>
         </div>
       </footer>
 
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

@@ -1,7 +1,9 @@
 import React from 'react';
 import { ShieldAlert, Trophy } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function CompetitorMatrix() {
+  const { t } = useLanguage();
   const competitors = [
     {
       rank: '#1',

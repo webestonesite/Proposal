@@ -1,7 +1,10 @@
 import React from 'react';
 import { Check, ShieldCheck, Zap, Award } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function InvestmentPricing({ onOpenModal }) {
+  const { t } = useLanguage();
+
   const deliverables = [
     'Complete Technical SEO Infrastructure Audit & Fixes',
     '35-40 Meta Titles & Descriptions Dutch Optimization',
@@ -19,13 +22,13 @@ export default function InvestmentPricing({ onOpenModal }) {
         
         <div className="mb-8 text-center max-w-3xl mx-auto animate-fade-up">
           <span className="px-3 py-1 rounded-full bg-emerald-100 text-[#48B83B] text-xs font-black uppercase tracking-wider font-mono inline-block mb-2">
-            SECTION 6.0 • INVESTMENT PRICING
+            {t('financial.sectionTitle')}
           </span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
             Commercial Investment & Scope Breakdown
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
-            All-inclusive SEO growth package for Bargello Eindhoven with zero hidden fees.
+            {t('financial.sectionSub')}
           </p>
         </div>
 

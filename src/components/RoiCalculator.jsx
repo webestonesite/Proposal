@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import { TrendingUp, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function RoiCalculator() {
+  const { t } = useLanguage();
   const [selectedMonth, setSelectedMonth] = useState(6);
 
   const monthlyProjections = [
