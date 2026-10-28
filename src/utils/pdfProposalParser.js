@@ -10,12 +10,24 @@ export async function extractTextFromPdf(file, onProgress) {
     if (onProgress) onProgress(15, 'Initializing in-browser PDF parser...');
 
     // Dynamic import so initial page bundle remains ultra-lightweight
-    const pdfjsLib = await import('pdfjs-dist');
+    const pdfModule = await import('pdfjs-dist');
+    const pdfjsLib = pdfModule.getDocument ? pdfModule : (pdfModule.default || pdfModule);
+
     if (typeof window !== 'undefined' && pdfjsLib.GlobalWorkerOptions) {
-      try {
-        pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.js', import.meta.url).toString();
-      } catch (err) {
-        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version || '3.11.174'}/pdf.worker.min.js`;
+      if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
+        try {
+          // 1. Same-origin static worker in public/ (avoids CORS and bundler path issues)
+          pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+        } catch {
+          // 2. Blob fallback with unpkg importScripts to prevent CORS SecurityError
+          const workerCdn = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version || '3.11.174'}/build/pdf.worker.min.js`;
+          try {
+            const blob = new Blob([`importScripts("${workerCdn}");`], { type: 'application/javascript' });
+            pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(blob);
+          } catch {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = workerCdn;
+          }
+        }
       }
     }
 
@@ -44,7 +56,7 @@ export async function extractTextFromPdf(file, onProgress) {
     return pagesText;
   } catch (error) {
     console.error('Error extracting PDF text:', error);
-    throw new Error('Failed to parse PDF document. Please verify the file is a valid PDF.');
+    throw new Error(error?.message || 'Failed to parse PDF document. Please verify the file is a valid PDF.');
   }
 }
 
