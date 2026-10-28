@@ -105,8 +105,8 @@ export default function AgencyPortfolio() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-[#48B83B]">
-              <span className="print:hidden"><CountUp end={100} suffix="+" /></span>
-              <span className="hidden print:inline">100+</span>
+              <span className="print:hidden"><CountUp end={85} suffix="+" /></span>
+              <span className="hidden print:inline">85+</span>
             </div>
             <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat1Title')}</div>
             <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat1Sub')}</div>

@@ -43,7 +43,7 @@ export const translations = {
     },
     hero: {
       badge: 'OFFICIAL B2B DIGITAL MARKETING PROPOSAL • REF: WEB-2026-DM-08',
-      mainTitle: 'Digital Marketing Agency',
+      mainTitle: 'Digital Marketing Service',
       mainSubTitle: 'Where Strategy, Technology & Growth Come Together',
       subTitle: 'Comprehensive SEO Audit Report & Optimization Proposal covering Technical SEO, Mobile PageSpeed, GEO & Off-Page Architecture.',
       targetMarket: 'Target Market',
