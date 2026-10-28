@@ -186,7 +186,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
               <div className="text-2xl font-black text-slate-900">
-                <CountUp end={6} suffix="+ Years" />
+                <CountUp end={7} suffix="+ Years" />
               </div>
               <div className="text-xs font-bold text-slate-800 mt-0.5">{t('about.stat2Title')}</div>
               <div className="text-[11px] text-slate-500 font-medium">{t('about.stat2Sub')}</div>
