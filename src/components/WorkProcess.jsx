@@ -27,7 +27,7 @@ export default function WorkProcess({ onNavigate }) {
           
           {/* Top Stage */}
           <div className="flex justify-center mb-8">
-            <button
+            <div
               onClick={() => onNavigate && onNavigate('audit-findings')}
               className="w-full sm:w-80 p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
             >
@@ -38,7 +38,7 @@ export default function WorkProcess({ onNavigate }) {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 {t('process.step1Desc')}
               </p>
-            </button>
+            </div>
           </div>
 
           {/* Central Process Node */}
@@ -51,8 +51,8 @@ export default function WorkProcess({ onNavigate }) {
 
           {/* Middle Row (Left & Right) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-            <button
-              onClick={() => onNavigate && onNavigate('roadmap')}
+            <div
+              onClick={() => onNavigate && onNavigate('core-services')}
               className="p-5 rounded-2xl bg-[#E8F8F0] border-2 border-[#48B83B] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
             >
               <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-emerald-200">
@@ -62,9 +62,9 @@ export default function WorkProcess({ onNavigate }) {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 {t('process.step2Desc')}
               </p>
-            </button>
+            </div>
 
-            <button
+            <div
               onClick={() => onNavigate && onNavigate('core-services')}
               className="p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
             >
@@ -75,12 +75,12 @@ export default function WorkProcess({ onNavigate }) {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 {t('process.step3Desc')}
               </p>
-            </button>
+            </div>
           </div>
 
           {/* Bottom Row (Left & Right) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <button
+            <div
               onClick={() => onNavigate && onNavigate('summary')}
               className="p-5 rounded-2xl bg-[#FFF9DB] border-2 border-[#FFC107] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
             >
@@ -91,9 +91,9 @@ export default function WorkProcess({ onNavigate }) {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 {t('process.step4Desc')}
               </p>
-            </button>
+            </div>
 
-            <button
+            <div
               onClick={() => onNavigate && onNavigate('portfolio')}
               className="p-5 rounded-2xl bg-[#E8F8F0] border-2 border-[#48B83B] shadow-sm hover-lift transition-all text-left cursor-pointer hover:scale-[1.02]"
             >
@@ -104,7 +104,7 @@ export default function WorkProcess({ onNavigate }) {
               <p className="text-xs text-slate-700 font-medium leading-relaxed">
                 {t('process.step5Desc')}
               </p>
-            </button>
+            </div>
           </div>
 
         </div>

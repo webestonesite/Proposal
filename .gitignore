@@ -4,3 +4,11 @@ dist
 *.local
 docx_summary.txt
 pdf_summary.txt
+last_imported_proposal.json
+report_extracted.txt
+.env
+.env.*
+*.log
+.vscode/
+.idea/
+Thumbs.db

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Header from './components/Header.jsx';
 import HeroSection from './components/HeroSection.jsx';
 import AuditIssues from './components/AuditIssues.jsx';
-import KpiGrid from './components/KpiGrid.jsx';
-import KeywordResearch from './components/KeywordResearch.jsx';
+
+
+
 import GrowthRoadmap from './components/GrowthRoadmap.jsx';
 import WorkProcess from './components/WorkProcess.jsx';
 import AgencyServices from './components/AgencyServices.jsx';
@@ -12,9 +13,12 @@ import AgencyPortfolio from './components/AgencyPortfolio.jsx';
 import ThankYouSection from './components/ThankYouSection.jsx';
 import ApprovalModal from './components/ApprovalModal.jsx';
 import WelcomeProposalModal from './components/WelcomeProposalModal.jsx';
-import { ShieldCheck, Phone, Globe, MapPin, MessageCircle, X } from 'lucide-react';
+import ProposalPreviewBar from './components/ProposalPreviewBar.jsx';
+import ProposalUploadModal from './components/ProposalUploadModal.jsx';
+import { ShieldCheck, Phone, Globe, MapPin, MessageCircle, X, Printer } from 'lucide-react';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext.jsx';
+import { ProposalProvider, useProposal } from './context/ProposalContext.jsx';
 
 function AppContent() {
   const { t } = useLanguage();
@@ -33,6 +37,9 @@ function AppContent() {
     <div className="min-h-screen bg-slate-100 text-slate-800 font-sans selection:bg-[#48B83B] selection:text-white flex flex-col justify-between overflow-x-hidden">
       
       <div>
+        {/* Executive Proposal Top Preview & Action Bar */}
+        <ProposalPreviewBar />
+
         {/* Navigation Header */}
         <Header
           onOpenModal={() => setIsModalOpen(true)}
@@ -48,6 +55,8 @@ function AppContent() {
             />
           </div>
 
+
+
           <div id="audit-findings">
             <AuditIssues
               onNavigate={(id) => scrollToSection(id)}
@@ -55,25 +64,17 @@ function AppContent() {
             />
           </div>
 
-          <div id="summary">
-            <KpiGrid
-              onNavigate={(id) => scrollToSection(id)}
-              onOpenModal={() => setIsModalOpen(true)}
-            />
-          </div>
 
-          <div id="keywords">
-            <KeywordResearch
-              onNavigate={(id) => scrollToSection(id)}
-              onOpenModal={() => setIsModalOpen(true)}
-            />
-          </div>
 
+
+
+          {/* Temporarily hidden: 6-Month Execution Roadmap
           <div id="roadmap">
             <GrowthRoadmap
               onOpenModal={() => setIsModalOpen(true)}
             />
           </div>
+          */}
 
           <div id="work-process">
             <WorkProcess
@@ -119,7 +120,7 @@ function AppContent() {
             {/* Mobile & Desktop Action Buttons */}
             <div className="flex items-center justify-between sm:justify-end gap-2 w-full md:w-auto">
               <a
-                href="https://wa.me/8801815025322?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20Digital%20Marketing%20Proposal"
+                href="https://wa.me/8801852495023?text=Hello%20Webestone%20Agency,%20I%20want%20to%20discuss%20the%20Digital%20Marketing%20Proposal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 sm:flex-none px-3 py-2 rounded-lg bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold flex items-center justify-center gap-1.5 shadow-xs transition text-xs whitespace-nowrap"
@@ -127,6 +128,14 @@ function AppContent() {
                 <MessageCircle className="w-3.5 h-3.5 text-white shrink-0" />
                 <span>{t('footer.whatsappUs')}</span>
               </a>
+
+              <button
+                onClick={() => window.print()}
+                className="flex-1 sm:flex-none px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-extrabold flex items-center justify-center gap-1.5 shadow-xs transition text-xs cursor-pointer whitespace-nowrap border border-slate-700"
+              >
+                <Printer className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+                <span>Download PDF</span>
+              </button>
 
               <button
                 onClick={() => setIsModalOpen(true)}
@@ -163,19 +172,22 @@ function AppContent() {
         onClose={() => setIsModalOpen(false)}
       />
 
+      {/* In-Browser PDF Proposal Upload & Generation Engine Modal */}
+      <ProposalUploadModal />
+
       {/* Official Webestone Agency Green Footer Bar */}
       <footer className="py-4 bg-[#48B83B] text-white text-xs font-bold border-t border-emerald-600">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
           
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
             <a
-              href="https://wa.me/8801815025322"
+              href="https://wa.me/8801852495023"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:underline"
             >
               <Phone className="w-4 h-4 text-amber-300" />
-              <span>+8801815025322</span>
+              <span>+8801852495023</span>
             </a>
 
             <span className="hidden sm:inline text-emerald-300">•</span>
@@ -211,7 +223,9 @@ function AppContent() {
 export default function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <ProposalProvider>
+        <AppContent />
+      </ProposalProvider>
     </LanguageProvider>
   );
 }

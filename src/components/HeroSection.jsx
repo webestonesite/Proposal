@@ -2,9 +2,11 @@ import React from 'react';
 import { ShieldCheck, ArrowRight, CheckCircle2, MapPin } from 'lucide-react';
 import CountUp from './CountUp';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import { useProposal } from '../context/ProposalContext.jsx';
 
 export default function HeroSection({ onOpenModal, onNavigate }) {
   const { t } = useLanguage();
+  const { proposal } = useProposal();
 
   return (
     <section className="py-12 bg-white border-b border-slate-200 relative overflow-hidden">
@@ -35,7 +37,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               </h1>
 
               <p className="text-slate-600 text-base font-medium leading-relaxed">
-                {t('hero.subTitle')}
+                {t('hero.subTitle')} Prepared specifically for <strong className="text-slate-900 font-bold">{proposal.domain || 'your digital store'}</strong>.
               </p>
             </div>
 
@@ -54,21 +56,21 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">{t('welcomeModal.preparedFor')}:</span>
                 <a
-                  href="https://bargelloeindhoven.nl"
+                  href={`https://${proposal.domain || t('welcomeModal.preparedForVal')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-900 font-bold hover:text-[#48B83B] hover:underline"
                 >
-                  Bargello Eindhoven
+                  {proposal.domain || t('welcomeModal.preparedForVal')}
                 </a>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600 font-semibold">{t('welcomeModal.targetMarket')}:</span>
-                <strong className="text-slate-900 font-bold">{t('welcomeModal.targetMarketVal')}</strong>
+                <strong className="text-slate-900 font-bold">{proposal.targetMarket || t('welcomeModal.targetMarketVal')}</strong>
               </div>
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">{t('welcomeModal.proposalDate')}:</span>
-                <strong className="text-slate-900 font-bold">{t('welcomeModal.proposalDateVal')}</strong>
+                <strong className="text-slate-900 font-bold">{proposal.createdAt || t('welcomeModal.proposalDateVal')}</strong>
               </div>
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">{t('welcomeModal.website')}:</span>
@@ -84,7 +86,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
               <div className="flex justify-between border-t border-emerald-200 pt-2">
                 <span className="text-slate-600 font-semibold">{t('welcomeModal.status')}:</span>
                 <button
-                  onClick={() => onNavigate('roadmap')}
+                  onClick={() => onNavigate('work-process')}
                   className="text-[#48B83B] font-extrabold hover:underline cursor-pointer"
                 >
                   {t('welcomeModal.statusVal')}
@@ -109,7 +111,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
             </button>
 
             <button
-              onClick={() => onNavigate('keywords')}
+              onClick={() => onNavigate('work-process')}
               className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 text-left hover:border-[#48B83B] hover:bg-emerald-50/50 hover:shadow-xs transition cursor-pointer"
             >
               <div className="w-10 h-10 rounded-full bg-[#FFC107] text-slate-900 font-black text-sm flex items-center justify-center shrink-0">
@@ -122,7 +124,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
             </button>
 
             <button
-              onClick={() => onNavigate('roadmap')}
+              onClick={() => onNavigate('work-process')}
               className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 text-left hover:border-[#48B83B] hover:bg-emerald-50/50 hover:shadow-xs transition cursor-pointer"
             >
               <div className="w-10 h-10 rounded-full bg-[#FFC107] text-slate-900 font-black text-sm flex items-center justify-center shrink-0">
@@ -135,7 +137,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
             </button>
 
             <button
-              onClick={() => onNavigate('roadmap')}
+              onClick={() => onNavigate('work-process')}
               className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-3 text-left hover:border-[#48B83B] hover:bg-emerald-50/50 hover:shadow-xs transition cursor-pointer"
             >
               <div className="w-10 h-10 rounded-full bg-[#FFC107] text-slate-900 font-black text-sm flex items-center justify-center shrink-0">
@@ -151,7 +153,7 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
           {/* Clean Action Buttons */}
           <div className="flex flex-wrap items-center gap-4">
             <button
-              onClick={() => onNavigate('roadmap')}
+              onClick={() => onNavigate('work-process')}
               className="px-6 py-3 rounded-lg bg-[#48B83B] text-white hover:bg-emerald-600 font-bold text-xs flex items-center gap-2 shadow-xs transition cursor-pointer"
             >
               <span>{t('hero.explorePlan')}</span>
@@ -246,10 +248,10 @@ export default function HeroSection({ onOpenModal, onNavigate }) {
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 hover-lift transition-all shadow-2xs">
                     <div className="flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                      <strong className="text-xs font-bold text-slate-900">Evora, Portugal</strong>
+                      <strong className="text-xs font-bold text-slate-900">Dhaka, Bangladesh</strong>
                     </div>
                     <span className="text-[10px] text-slate-500 font-semibold block mt-1">
-                      GMT+1
+                      GMT+6
                     </span>
                   </div>
 

@@ -1,14 +1,16 @@
 import React from 'react';
 import { X, CheckCircle2, ShieldCheck, ArrowRight, Lock, Globe, FileText } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import { useProposal } from '../context/ProposalContext.jsx';
 
 export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeModal, onNavigate }) {
   const { t } = useLanguage();
+  const { proposal } = useProposal();
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/80 backdrop-blur-sm animate-fadeIn overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/80 backdrop-blur-sm animate-fadeIn overflow-y-auto print:hidden">
       <div className="bg-white max-w-2xl w-full rounded-2xl border-2 border-[#48B83B] p-5 sm:p-8 relative space-y-5 shadow-2xl font-sans max-h-[92vh] overflow-y-auto my-auto">
 
         {/* Top Close Button */}
@@ -25,7 +27,7 @@ export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeM
           <div className="flex flex-wrap items-center gap-2">
             <img
               src="/webestone_logo.webp"
-              alt="Webestone Digital Marketing Agency"
+              alt="Webestone Digital Marketing Service"
               className="h-8 w-auto object-contain"
             />
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-100 text-[#48B83B] font-mono text-[10px] sm:text-xs font-black border border-emerald-300">
@@ -38,7 +40,7 @@ export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeM
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-600 font-medium">
-            {t('welcomeModal.subTitle')}
+            Strategic Execution Framework prepared for {proposal.domain || t('welcomeModal.preparedForVal')}.
           </p>
         </div>
 
@@ -60,17 +62,17 @@ export default function WelcomeProposalModal({ isOpen, onClose, onOpenAuthorizeM
 
           <div className="flex justify-between items-center border-b border-emerald-200/60 pb-2">
             <span className="text-slate-600 font-bold">{t('welcomeModal.preparedFor')}:</span>
-            <strong className="text-slate-900 font-extrabold">{t('welcomeModal.preparedForVal')}</strong>
+            <strong className="text-slate-900 font-extrabold">{proposal.domain || t('welcomeModal.preparedForVal')}</strong>
           </div>
 
           <div className="flex justify-between items-center border-b border-emerald-200/60 pb-2">
             <span className="text-slate-600 font-bold">{t('welcomeModal.targetMarket')}:</span>
-            <strong className="text-slate-900 font-bold">{t('welcomeModal.targetMarketVal')}</strong>
+            <strong className="text-slate-900 font-bold">{proposal.targetMarket || t('welcomeModal.targetMarketVal')}</strong>
           </div>
 
           <div className="flex justify-between items-center border-b border-emerald-200/60 pb-2">
             <span className="text-slate-600 font-bold">{t('welcomeModal.proposalDate')}:</span>
-            <strong className="text-slate-900 font-bold">{t('welcomeModal.proposalDateVal')}</strong>
+            <strong className="text-slate-900 font-bold">{proposal.createdAt || t('welcomeModal.proposalDateVal')}</strong>
           </div>
 
           <div className="flex justify-between items-center border-b border-emerald-200/60 pb-2">

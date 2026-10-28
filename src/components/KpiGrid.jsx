@@ -118,7 +118,7 @@ export default function KpiGrid() {
                   strokeDasharray="3.0 251.3"
                   strokeDashoffset="-249.7"
                 />
-                {/* Bargello Client Gap 0.1% */}
+                {/* Tereapoint Client Gap 0.1% */}
                 <circle
                   cx="50"
                   cy="50"

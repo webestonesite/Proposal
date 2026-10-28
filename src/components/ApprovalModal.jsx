@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { X, CheckCircle, Printer, ShieldCheck, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import { useProposal } from '../context/ProposalContext.jsx';
 
 export default function ApprovalModal({ isOpen, onClose }) {
   const { t } = useLanguage();
+  const { proposal } = useProposal();
   const [submitted, setSubmitted] = useState(false);
+
+  const clientName = proposal?.companyName || proposal?.domain || 'Client';
+  const clientDomain = proposal?.domain || 'clientwebsite.com';
+
   const [formData, setFormData] = useState({
-    name: 'Bargello Eindhoven Authorized Representative',
+    name: `${clientName} Authorized Representative`,
     title: 'Store Owner / Marketing Director',
     email: '',
     notes: '',
@@ -19,9 +25,9 @@ export default function ApprovalModal({ isOpen, onClose }) {
     e.preventDefault();
     setSubmitted(true);
 
-    const message = `Hello Webestone Agency,\n\nI am officially authorizing the 6-Month B2B SEO Proposal for Bargello Eindhoven.\n\n👤 Representative: ${formData.name}\n💼 Title: ${formData.title}\n📧 Email: ${formData.email}\n📝 Notes: ${formData.notes || 'None'}\n\nRef: WEB-2026-SEO-07`;
+    const message = `Hello Webestone Agency,\n\nI am officially authorizing the 6-Month B2B SEO Proposal for ${clientName} (${clientDomain}).\n\n👤 Representative: ${formData.name}\n💼 Title: ${formData.title}\n📧 Email: ${formData.email}\n📝 Notes: ${formData.notes || 'None'}\n\nRef: WEB-2026-SEO-08`;
     
-    const whatsappUrl = `https://wa.me/8801815025322?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/8801852495023?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -30,7 +36,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-fadeIn print:hidden">
       <div className="bg-white max-w-xl w-full rounded-2xl border border-slate-300 p-6 sm:p-8 relative space-y-5 shadow-2xl font-sans">
         
         {/* Close Button */}
@@ -85,7 +91,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
                 <input
                   type="email"
                   required
-                  placeholder="contact@bargelloeindhoven.nl"
+                  placeholder={`contact@${clientDomain}`}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-3 py-2 rounded bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-slate-900 font-medium"
@@ -96,7 +102,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
                 <label className="block text-slate-700 font-bold mb-1">{t('approvalModal.notesLabel')}</label>
                 <textarea
                   rows="2"
-                  placeholder="Any specific target Eindhoven product lines or custom notes..."
+                  placeholder="Any specific target product lines or custom notes..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   className="w-full px-3 py-2 rounded bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-slate-900 resize-none font-medium"
@@ -108,7 +114,7 @@ export default function ApprovalModal({ isOpen, onClose }) {
                   <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
                   Direct WhatsApp Authorization Active:
                 </p>
-                <p>• Direct WhatsApp connection (+8801815025322) to Webestone Agency.</p>
+                <p>• Direct WhatsApp connection (+8801852495023) to Webestone Agency.</p>
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-200">
@@ -139,12 +145,12 @@ export default function ApprovalModal({ isOpen, onClose }) {
 
             <h3 className="text-xl font-extrabold text-slate-900">Proposal Contract Authorized</h3>
             <p className="text-xs text-slate-600 max-w-sm mx-auto">
-              Thank you, <strong className="text-slate-900">{formData.name}</strong> ({formData.title}). Webestone Agency has logged your confirmation for Bargello Eindhoven's 6-Month SEO Campaign and redirected to WhatsApp (+8801815025322).
+              Thank you, <strong className="text-slate-900">{formData.name}</strong> ({formData.title}). Webestone Agency has logged your confirmation for {clientName}'s SEO Campaign and redirected to WhatsApp (+8801852495023).
             </p>
 
             <div className="flex justify-center gap-3">
               <a
-                href={`https://wa.me/8801815025322?text=${encodeURIComponent(`Hello Webestone Agency, following up on authorization for Bargello Eindhoven proposal.`)}`}
+                href={`https://wa.me/8801852495023?text=${encodeURIComponent(`Hello Webestone Agency, following up on authorization for ${clientName} proposal.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5"

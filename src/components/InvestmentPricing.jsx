@@ -7,11 +7,11 @@ export default function InvestmentPricing({ onOpenModal }) {
 
   const deliverables = [
     'Complete Technical SEO Infrastructure Audit & Fixes',
-    '35-40 Meta Titles & Descriptions Dutch Optimization',
+    '35-40 Meta Titles & Descriptions UAE Optimization',
     'Schema Markup (Product, LocalBusiness, Organization)',
-    '240+ Pages of High-Quality Dutch Fragrance Content',
-    'Google Business Profile Optimization for Eindhoven',
-    '100+ Premium Dutch Backlinks (Blogs & Press Releases)',
+    '240+ Pages of High-Quality Vape & Terea Content',
+    'Google Business Profile Optimization for Dubai',
+    '100+ Premium UAE Backlinks (Blogs & Press Releases)',
     'Monthly Performance & Keyword Ranking Analytics Reports',
     'Dedicated SEO Specialist & Priority Direct Support'
   ];
@@ -42,7 +42,7 @@ export default function InvestmentPricing({ onOpenModal }) {
               </div>
 
               <h3 className="text-lg font-black text-slate-900 mb-0.5">Full 6-Month SEO Package</h3>
-              <p className="text-xs text-slate-500 font-bold mb-4">Dutch Market Dominance Strategy</p>
+              <p className="text-xs text-slate-500 font-bold mb-4">UAE Market Dominance Strategy</p>
 
               <div className="flex items-baseline gap-2 border-b border-emerald-100 pb-4 mb-4">
                 <span className="text-3xl font-black text-slate-900">$880</span>

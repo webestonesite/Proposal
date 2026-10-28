@@ -24,7 +24,7 @@ export default function AgencyPortfolio() {
         'E-Commerce Marketing & Search Engine Configuration'
       ],
       skills: ['E-Commerce SEO', 'SEO Audit', 'Keyword Research', 'Product Catalog Setup', 'E-Commerce Marketing'],
-      tag: 'Featured Case Study #1',
+      tag: 'Our Client Case Study #1',
       badgeBg: 'bg-emerald-100 text-emerald-800 border border-emerald-300'
     },
     {
@@ -43,7 +43,7 @@ export default function AgencyPortfolio() {
         'On-Page SEO & Search Engine Configuration'
       ],
       skills: ['SEO Audit', 'Keyword Research', 'Competitor Analysis', 'SEO Content', 'On-Page SEO'],
-      tag: 'Featured Case Study #2',
+      tag: 'Our Client Case Study #2',
       badgeBg: 'bg-blue-100 text-blue-900 border border-blue-300'
     },
     {
@@ -61,7 +61,7 @@ export default function AgencyPortfolio() {
         'Technical Schema & Product Meta Optimization'
       ],
       skills: ['Vape SEO', 'E-Commerce SEO', 'Local Dubai SEO', 'Keyword Research', 'Catalog Optimization'],
-      tag: 'Vape Niche Case Study #3',
+      tag: 'Our Client Case Study #3',
       badgeBg: 'bg-purple-100 text-purple-900 border border-purple-300'
     },
     {
@@ -79,7 +79,7 @@ export default function AgencyPortfolio() {
         'Speed & Core Web Vitals Technical Optimization'
       ],
       skills: ['Vape Pods SEO', 'E-Commerce Architecture', 'Product Schema', 'Conversion Optimization'],
-      tag: 'Vape Niche Case Study #4',
+      tag: 'Our Client Case Study #4',
       badgeBg: 'bg-amber-100 text-amber-900 border border-amber-300'
     }
   ];
@@ -105,7 +105,8 @@ export default function AgencyPortfolio() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-[#48B83B]">
-              <CountUp end={100} suffix="+" />
+              <span className="print:hidden"><CountUp end={100} suffix="+" /></span>
+              <span className="hidden print:inline">100+</span>
             </div>
             <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat1Title')}</div>
             <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat1Sub')}</div>
@@ -113,7 +114,8 @@ export default function AgencyPortfolio() {
 
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-slate-900">
-              <CountUp prefix="+" end={350} suffix="%" />
+              <span className="print:hidden"><CountUp prefix="+" end={350} suffix="%" /></span>
+              <span className="hidden print:inline">+350%</span>
             </div>
             <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat2Title')}</div>
             <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat2Sub')}</div>
@@ -121,7 +123,8 @@ export default function AgencyPortfolio() {
 
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-slate-900">
-              <CountUp end={5000} suffix="+" />
+              <span className="print:hidden"><CountUp end={5000} suffix="+" /></span>
+              <span className="hidden print:inline">5,000+</span>
             </div>
             <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat3Title')}</div>
             <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat3Sub')}</div>
@@ -129,7 +132,8 @@ export default function AgencyPortfolio() {
 
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
             <div className="text-2xl font-black text-[#48B83B]">
-              <CountUp end={98} suffix="%" />
+              <span className="print:hidden"><CountUp end={98} suffix="%" /></span>
+              <span className="hidden print:inline">98%</span>
             </div>
             <div className="text-xs font-bold text-slate-800 mt-0.5">{t('portfolio.stat4Title')}</div>
             <div className="text-[11px] text-slate-500 font-medium">{t('portfolio.stat4Sub')}</div>
@@ -249,7 +253,7 @@ export default function AgencyPortfolio() {
 
       {/* Contact & NDA Access Popup Modal */}
       {activeModalProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-xs animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-xs animate-fade-in print:hidden">
           <div className="bg-white rounded-2xl border-2 border-[#48B83B] shadow-2xl max-w-lg w-full p-6 sm:p-8 relative space-y-5 animate-fade-up">
 
             {/* Close Modal Button */}

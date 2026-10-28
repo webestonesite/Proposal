@@ -106,3 +106,135 @@
   transform: translateY(-4px);
   box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
 }
+
+/* Comprehensive PDF Digital Document Print Optimization Styles */
+@media print {
+  @page {
+    size: auto;
+    margin: 8mm 10mm;
+  }
+
+  /* Force background colors, borders, and sharp text */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html, body, #root, #root > div, main {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 9.5pt !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    display: block !important;
+    position: static !important;
+  }
+
+  /* Hide UI controls, sticky bars, open modals, and overlays */
+  .print\:hidden, 
+  header, 
+  footer, 
+  .no-print,
+  [role="dialog"],
+  .fixed,
+  div[class*="backdrop-blur"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Continuous Digital Document Flow — Clean Page Splits */
+  section {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    overflow: visible !important;
+  }
+
+  /* Keep headings attached to subsequent content */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    color: #0f172a !important;
+  }
+
+  p, span, li, div {
+    orphans: 3 !important;
+    widows: 3 !important;
+  }
+
+  /* Containers & Table Full Width */
+  .overflow-x-auto, 
+  .overflow-hidden,
+  .overflow-y-auto {
+    overflow: visible !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    font-size: 8pt !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  th, td {
+    padding: 3px 5px !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  /* Link Display & Active PDF Annotations */
+  a[href] {
+    word-break: break-all !important;
+    text-decoration: underline !important;
+    color: #15803d !important;
+    background: transparent !important;
+    position: static !important;
+  }
+
+  /* Keep white text visible inside dark/green badges */
+  .text-white,
+  button.bg-\[\#48B83B\],
+  button.bg-\[\#25D366\],
+  .bg-\[\#48B83B\] > .text-white,
+  .bg-slate-900 > .text-white {
+    color: #ffffff !important;
+  }
+}
+
+
+
+
+
+
+

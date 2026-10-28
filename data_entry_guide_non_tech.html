@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Proposal Data Entry Guide (No-Code Framework)</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 14mm 14mm 14mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+    .header {
+      border-bottom: 3px solid #10b981;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-left h1 {
+      font-size: 22px;
+      color: #0f172a;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .header-left p {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+    .badge {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #059669;
+      border: 1px solid #a7f3d0;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intro-box {
+      background: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 12.5px;
+      color: #334155;
+    }
+    .section-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      page-break-inside: avoid;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+    .section-header {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-header h2 {
+      font-size: 15px;
+      color: #0f172a;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-header .tag {
+      font-size: 11px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #475569;
+      font-weight: 600;
+    }
+    .section-body {
+      padding: 14px 16px;
+    }
+    .desc-text {
+      font-size: 12px;
+      color: #475569;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+    th {
+      background: #0f172a;
+      color: #ffffff;
+      text-align: left;
+      padding: 8px 10px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: middle;
+    }
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .field-name {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .field-desc {
+      font-size: 11px;
+      color: #64748b;
+    }
+    .example-val {
+      font-family: Consolas, monospace;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      display: inline-block;
+    }
+    .fill-box {
+      background: #ffffff;
+      border: 1px dashed #94a3b8;
+      border-radius: 4px;
+      padding: 6px;
+      min-height: 24px;
+      color: #94a3b8;
+      font-style: italic;
+      font-size: 11px;
+    }
+    .file-pill {
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      color: #475569;
+      background: #e2e8f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .callout {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .callout-tip {
+      background: #fefce8;
+      border: 1px solid #fef08a;
+      color: #854d0e;
+    }
+    .callout-info {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer {
+      margin-top: 25px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 10px;
+      font-size: 11px;
+      color: #94a3b8;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>📋 Client Proposal Data Entry Guide</h1>
+      <p>No-Code Data Collection & Client Specification Framework</p>
+    </div>
+    <div>
+      <span class="badge">Official Manual</span>
+    </div>
+  </div>
+
+  <!-- Intro Box -->
+  <div class="intro-box">
+    <strong>💡 Purpose of this Guide:</strong><br>
+    This proposal platform is built so that team members and non-technical stakeholders can customize a full proposal without touching code. Each section below outlines the exact information needed with real-world examples and empty fields to fill in.
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section-card">
+    <div class="section-header">
+      <h2>1. Client & Proposal Overview (Metadata)</h2>
+      <span class="tag">Header & Cover</span>
+    </div>
+    <div class="section-body">
+      <div class="desc-text">
+        These fields populate the top navigation bar, the cover section, and the client authorization modal.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">Field Name</th>
+            <th style="width: 35%;">Real Example</th>
+            <th style="width: 40%;">Your Client Data (Fill Here)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="field-name">Client Brand / Business Name</div>
+              <div class="field-desc">Company or Store Name</div>
+            </td>
+            <td><span class="example-val">Perfume Dubai / Bargello Eindhoven</span></td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="field-name">Client Website URL</div>
+              <div class="field-desc">Target Store Domain</div>
+            </td>
+            <td><span class="example-val">perfumedubai.com / bargelloeindhoven.nl</span></td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="field-name">Target Market / Region</div>
+              <div class="field-desc">Primary SEO Target Country</div>
+            </td>
+            <td><span class="example-val">Dubai, UAE / Eindhoven, Netherlands</span></td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="field-name">Proposal Date</div>
+              <div class="field-desc">Date of Document Delivery</div>
+            </td>
+            <td><span class="example-val">March 15, 2026 / August 2026</span></td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="field-name">4 Key Objectives</div>
+              <div class="field-desc">Primary Campaign Outcomes</div>
+            </td>
+            <td>
+              1. Dominating high-converting commercial keywords<br>
+              2. Fixing critical mobile speed and crawl barriers<br>
+              3. Deploying GEO & Product Schema for AI search<br>
+              4. Outranking top regional competitors
+            </td>
+            <td><div class="fill-box" style="height: 60px;">1. <br>2. <br>3. </div></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-info">
+        <span>📍 <strong>Location in Project:</strong> Configured in <span class="file-pill">src/translations/index.js</span> under <code>welcomeModal</code> and <code>hero</code> objects, or auto-populated via PDF upload.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section-card">
+    <div class="section-header">
+      <h2>2. Technical SEO Audit Checklist & Findings</h2>
+      <span class="tag">Audit Table</span>
+    </div>
+    <div class="section-body">
+      <div class="desc-text">
+        Itemized diagnostic list showing website errors, warnings, and passed parameters with remediation actions.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 22%;">Audit Item</th>
+            <th style="width: 14%;">Status</th>
+            <th style="width: 34%;">Diagnostic Finding</th>
+            <th style="width: 30%;">Webestone Action Strategy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mobile PageSpeed</strong></td>
+            <td><span style="color:#dc2626; font-weight:bold;">FAIL</span></td>
+            <td>Score is 21/100. FCP 3.9s, Speed Index 7.1s.</td>
+            <td>Defer render-blocking CSS/JS, optimize image payloads to reach 90+ score.</td>
+          </tr>
+          <tr>
+            <td><strong>Heading Structure (H1)</strong></td>
+            <td><span style="color:#dc2626; font-weight:bold;">FAIL</span></td>
+            <td>Outline starts with H2 instead of H1; skipped levels.</td>
+            <td>Implement single descriptive &lt;h1&gt; with primary target keywords.</td>
+          </tr>
+          <tr>
+            <td><strong>Meta Title & Desc</strong></td>
+            <td><span style="color:#dc2626; font-weight:bold;">FAIL</span></td>
+            <td>Title tag length is 63 chars; missing primary intent keywords.</td>
+            <td>Re-target and shorten titles within 50-60 characters.</td>
+          </tr>
+          <tr>
+            <td><strong>Generative Engine SEO (GEO)</strong></td>
+            <td><span style="color:#dc2626; font-weight:bold;">FAIL</span></td>
+            <td>Missing FAQ structured content for AI Search Engines.</td>
+            <td>Deploy conversational Q&A content with FAQPage Schema.</td>
+          </tr>
+          <tr>
+            <td><strong>SSL & Protocol Security</strong></td>
+            <td><span style="color:#16a34a; font-weight:bold;">PASS</span></td>
+            <td>SSL active; HTTP properly redirects to HTTPS.</td>
+            <td>Maintain security headers and HSTS configuration.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-tip">
+        <span>💡 <strong>Screenshot Evidence:</strong> Screenshot proof links can be uploaded to Lightshot or Google Drive and linked in the Proof column.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Section 3 -->
+  <div class="section-card">
+    <div class="section-header">
+      <h2>3. Competitor Benchmarking & Traffic Share</h2>
+      <span class="tag">Benchmark Matrix</span>
+    </div>
+    <div class="section-body">
+      <div class="desc-text">
+        Comparative analysis comparing your client against their top 3 regional competitors across key metrics.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">SEO Metric</th>
+            <th style="width: 20%;">Your Client</th>
+            <th style="width: 18%;">Competitor 1</th>
+            <th style="width: 18%;">Competitor 2</th>
+            <th style="width: 19%;">Competitor 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Website Brand</strong></td>
+            <td><span class="example-val">Your Client</span></td>
+            <td><span class="example-val">Douglas</span></td>
+            <td><span class="example-val">ICI Paris XL</span></td>
+            <td><span class="example-val">Parfumado</span></td>
+          </tr>
+          <tr>
+            <td><strong>Indexed Pages</strong></td>
+            <td>5 – 35 Pages</td>
+            <td>1,000+ Pages</td>
+            <td>500+ Pages</td>
+            <td>100+ Pages</td>
+          </tr>
+          <tr>
+            <td><strong>Monthly Organic Traffic</strong></td>
+            <td>50 – 100 Visits</td>
+            <td>5,400,000 Visits</td>
+            <td>380,000 Visits</td>
+            <td>6,000 Visits</td>
+          </tr>
+          <tr>
+            <td><strong>Ranking Keywords</strong></td>
+            <td>0 – 7 Keywords</td>
+            <td>8,500+</td>
+            <td>484</td>
+            <td>38</td>
+          </tr>
+          <tr>
+            <td><strong>Domain Authority (DA)</strong></td>
+            <td>DA: 1 – 4</td>
+            <td>DA: 52</td>
+            <td>DA: 47</td>
+            <td>DA: 34</td>
+          </tr>
+          <tr>
+            <td><strong>Market Traffic Share %</strong></td>
+            <td>0.1%</td>
+            <td>58.4%</td>
+            <td>41.0%</td>
+            <td>0.6%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-info">
+        <span>📍 <strong>Location in Project:</strong> Located in <span class="file-pill">src/components/KpiGrid.jsx</span> and <span class="file-pill">src/translations/index.js</span> under <code>kpi</code>.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section-card">
+    <div class="section-header">
+      <h2>4. Target Keywords & Search Opportunities</h2>
+      <span class="tag">Keywords</span>
+    </div>
+    <div class="section-body">
+      <div class="desc-text">
+        High-intent keywords targeted for first-page Google ranking in the client's geographic region.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 30%;">Target Keyword</th>
+            <th style="width: 20%;">Monthly Search Volume</th>
+            <th style="width: 15%;">Keyword Difficulty (KD)</th>
+            <th style="width: 15%;">Search Intent</th>
+            <th style="width: 20%;">Priority Tag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>perfume in dubai</strong></td>
+            <td>1,900 searches/mo</td>
+            <td>28% (Easy)</td>
+            <td>Commercial</td>
+            <td><span style="color:#16a34a; font-weight:bold;">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>dubai perfumery</strong></td>
+            <td>1,600 searches/mo</td>
+            <td>24% (Easy)</td>
+            <td>Transactional</td>
+            <td><span style="color:#16a34a; font-weight:bold;">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>luxury perfumes dubai</strong></td>
+            <td>880 searches/mo</td>
+            <td>35% (Medium)</td>
+            <td>Commercial</td>
+            <td><span style="color:#d97706; font-weight:bold;">MEDIUM</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section-card">
+    <div class="section-header">
+      <h2>5. 6-Month Strategic Growth Roadmap</h2>
+      <span class="tag">Execution Plan</span>
+    </div>
+    <div class="section-body">
+      <div class="desc-text">
+        Month-by-month deliverable schedule across Technical SEO, Content Architecture, and Authority Outreach.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 14%;">Month</th>
+            <th style="width: 20%;">Phase Name</th>
+            <th style="width: 42%;">Core Tasks & Objectives</th>
+            <th style="width: 24%;">Client Deliverables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Month 1</strong></td>
+            <td>Foundation Phase</td>
+            <td>Technical audit fixes, GSC & GA4 setup, sitemap and robots.txt reconfiguration.</td>
+            <td>Audit completion report & keyword master sheet.</td>
+          </tr>
+          <tr>
+            <td><strong>Month 2</strong></td>
+            <td>On-Page Optimization</td>
+            <td>Rewrite title tags, meta descriptions, and structural H1-H3 outlines for all catalog roots.</td>
+            <td>On-page optimization tracking report.</td>
+          </tr>
+          <tr>
+            <td><strong>Month 3</strong></td>
+            <td>Content Expansion</td>
+            <td>Publish SEO blog articles, expand thin catalog descriptions, and deploy FAQPage schema.</td>
+            <td>4 published articles & schema validation report.</td>
+          </tr>
+          <tr>
+            <td><strong>Month 4</strong></td>
+            <td>PageSpeed & Usability</td>
+            <td>Optimize Core Web Vitals (LCP, CLS, INP), image compression, and mobile UX tuning.</td>
+            <td>PageSpeed Insights 90+ score certification.</td>
+          </tr>
+          <tr>
+            <td><strong>Month 5</strong></td>
+            <td>Link Authority</td>
+            <td>High-authority regional backlinks, niche outreach, and local directory citations.</td>
+            <td>Live backlink tracker & DA improvement report.</td>
+          </tr>
+          <tr>
+            <td><strong>Month 6</strong></td>
+            <td>Market Leadership</td>
+            <td>Rank velocity monitoring, conversion optimization, and next-phase scaling blueprint.</td>
+            <td>Comprehensive 6-month ROI & ranking report.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Section 6 -->
+  <div class="section-card">
+    <div class="section-header">
+      <h2>6. Commercial Investment & Payment Schedule</h2>
+      <span class="tag">Pricing & Terms</span>
+    </div>
+    <div class="section-body">
+      <div class="desc-text">
+        Pricing tiers, campaign scope, and milestone payment schedules for the client agreement.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 35%;">Agreement Item</th>
+            <th style="width: 30%;">Recommended Term</th>
+            <th style="width: 35%;">Your Custom Term (Fill Here)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Monthly Retainer Fee</strong></td>
+            <td><span class="example-val">$880 / month (or €900)</span></td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td><strong>Total Campaign Investment</strong></td>
+            <td><span class="example-val">$5,300 – $7,300 (6 Months)</span></td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td><strong>Expected Breakeven Period</strong></td>
+            <td><span class="example-val">1.5 – 2 Months</span></td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td><strong>Initial Setup Deposit</strong></td>
+            <td>25% due upon project authorization</td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td><strong>50% Completion Milestone</strong></td>
+            <td>Due upon approval of Month 3 deliverables</td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+          <tr>
+            <td><strong>Remaining Balance</strong></td>
+            <td>Bi-weekly or monthly scheduled installments</td>
+            <td><div class="fill-box">.................................................</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section-card">
+    <div class="section-header">
+      <h2>7. Verified Case Studies & Proven Track Record</h2>
+      <span class="tag">Portfolio</span>
+    </div>
+    <div class="section-body">
+      <div class="desc-text">
+        Demonstrated results from prior agency client campaigns to establish credibility and trust.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">Project / Client</th>
+            <th style="width: 22%;">Industry Category</th>
+            <th style="width: 23%;">Achieved Result</th>
+            <th style="width: 30%;">Verification URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Vape Stall Dubai</strong></td>
+            <td>E-Commerce SEO</td>
+            <td><span style="color:#16a34a; font-weight:bold;">+420% Organic Traffic</span></td>
+            <td>vapstall.ae / Upwork Verified</td>
+          </tr>
+          <tr>
+            <td><strong>FastIT Systems</strong></td>
+            <td>B2B SaaS / Automation</td>
+            <td><span style="color:#16a34a; font-weight:bold;">+380% Qualified Leads</span></td>
+            <td>fastit.com.bd / Upwork Verified</td>
+          </tr>
+          <tr>
+            <td><strong>Vape Shop Dubai</strong></td>
+            <td>Retail & Delivery</td>
+            <td><span style="color:#16a34a; font-weight:bold;">+310% Local Ranking</span></td>
+            <td>vapshopdubai.ae / Regional Authority</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>Webestone Agency — Proposal & Audit Data Entry System</div>
+    <div>Page 3 of 3 • Standard Client Specification Manual</div>
+  </div>
+
+</body>
+</html>

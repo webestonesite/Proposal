@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
-import { TrendingUp, Sparkles } from 'lucide-react';
+import { TrendingUp, Calendar } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function RoiCalculator() {
@@ -39,7 +39,7 @@ export default function RoiCalculator() {
         <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50 shadow-sm mb-8 space-y-4 animate-fade-up hover-lift">
           <div className="flex items-center justify-between">
             <label className="text-sm font-black text-slate-900 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#48B83B]" />
+              <Calendar className="w-4 h-4 text-[#48B83B]" />
               Select Strategy Timeline: <span className="text-[#48B83B]">Month {selectedMonth}</span>
             </label>
             <span className="text-xs font-extrabold px-3 py-1 rounded bg-[#FFC107] text-slate-900">
@@ -91,7 +91,7 @@ export default function RoiCalculator() {
 
           <div className="glass-card p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
             <span className="text-xs text-slate-500 font-medium">Ranking Keywords</span>
-            <p className="text-xl font-extrabold text-sky-700 mt-1">{currentData.keywords} Dutch Keywords</p>
+            <p className="text-xl font-extrabold text-sky-700 mt-1">{currentData.keywords} Target Keywords</p>
             <span className="text-[10px] text-slate-400">Top 10-20 position</span>
           </div>
         </div>

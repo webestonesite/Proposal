@@ -1,48 +1,39 @@
 import React from 'react';
-import { ShieldCheck, Globe, ChevronDown } from 'lucide-react';
+import { ShieldCheck, Globe, Printer, PlusCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import { useProposal } from '../context/ProposalContext.jsx';
 
 export default function Header({ onScrollToSection, onOpenModal }) {
   const { lang, toggleLanguage, setLang, t } = useLanguage();
+  const { proposal, setIsUploadModalOpen } = useProposal();
 
   const sections = [
     { id: 'cover', label: t('header.cover') },
     { id: 'audit-findings', label: t('header.audit') },
-    { id: 'summary', label: t('header.benchmark') },
-    { id: 'keywords', label: t('header.keywords') },
-    { id: 'roadmap', label: t('header.strategy') },
+    // { id: 'roadmap', label: t('header.strategy') }, // Temporarily hidden
     { id: 'work-process', label: t('header.process') },
     { id: 'core-services', label: t('header.services') },
     { id: 'financial-policy', label: t('header.terms') },
     { id: 'portfolio', label: t('header.portfolio') },
   ];
 
-  const handleLanguageChange = (e) => {
-    const selectedLang = e.target.value;
-    if (setLang) {
-      setLang(selectedLang);
-    } else {
-      toggleLanguage(selectedLang);
-    }
-  };
-
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs print:hidden">
-      
+
       {/* Top Header Main Row */}
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 gap-1.5 sm:gap-4">
-          
+
           {/* Official Webestone Logo & Proposal Sub-tag */}
           <div className="flex items-center space-x-2 sm:space-x-3 shrink-0 cursor-pointer" onClick={() => onScrollToSection('cover')}>
             <img
               src="/webestone_logo.webp"
-              alt="Webestone Digital Marketing Agency"
+              alt="Webestone Digital Marketing Service"
               className="h-6 sm:h-8 w-auto object-contain"
             />
 
             <div className="hidden md:flex items-center space-x-2 border-l border-slate-200 pl-3">
-              <span className="text-xs font-extrabold text-slate-900">Bargello Eindhoven</span>
+              <span className="text-xs font-extrabold text-slate-900">{proposal.companyName || proposal.domain}</span>
               <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-[#48B83B] font-extrabold border border-emerald-300">
                 {t('header.proposalTag')}
               </span>
@@ -51,23 +42,24 @@ export default function Header({ onScrollToSection, onOpenModal }) {
 
           {/* Action CTAs & Language Dropdown */}
           <div className="flex items-center space-x-1.5 sm:space-x-2.5 shrink-0">
-            
-            {/* Ultra Compact Language Select Dropdown (Zero Overflow on Mobile) */}
-            <div className="relative flex items-center shrink-0">
-              <span className="text-xs absolute left-1.5 pointer-events-none z-10">
-                {lang === 'nl' ? '🇳🇱' : '🇬🇧'}
-              </span>
-              <select
-                value={lang}
-                onChange={handleLanguageChange}
-                className="pl-6 pr-5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 font-extrabold text-[11px] sm:text-xs appearance-none cursor-pointer focus:outline-none focus:border-[#48B83B] transition-all shadow-2xs"
-                aria-label="Select Language"
-              >
-                <option value="en" className="bg-white text-slate-900 font-bold py-1">EN</option>
-                <option value="nl" className="bg-white text-slate-900 font-bold py-1">NL</option>
-              </select>
-              <ChevronDown className="w-3 h-3 text-slate-600 absolute right-1 pointer-events-none" />
-            </div>
+
+            <button
+              onClick={() => setIsUploadModalOpen(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs transition shadow-xs cursor-pointer"
+              title="Generate New Proposal from PDF"
+            >
+              <PlusCircle className="w-3.5 h-3.5 text-white" />
+              <span>Generate New Proposal</span>
+            </button>
+
+            <button
+              onClick={() => window.print()}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-xs transition border border-slate-300 cursor-pointer"
+              title="Download/Print PDF"
+            >
+              <Printer className="w-3.5 h-3.5 text-slate-700" />
+              <span>Download PDF</span>
+            </button>
 
             <a
               href="https://webestone.com"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckSquare, Sparkles, Layers, BarChart3, Bot, Share2, MousePointerClick, ShoppingBag, FileText } from 'lucide-react';
+import { CheckSquare, Target, Layers, BarChart3, Bot, Share2, MousePointerClick, ShoppingBag, FileText } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function AgencyServices() {
@@ -53,7 +53,6 @@ export default function AgencyServices() {
       icon: MousePointerClick,
       desc: t('services.s3Desc'),
       items: [
-        'Google Ads',
         'Meta Ads',
         'TikTok Ads',
         'LinkedIn Ads',
@@ -112,7 +111,7 @@ export default function AgencyServices() {
             {coreStrengths.map((cs, idx) => (
               <div key={idx} className="p-5 rounded-2xl bg-white border border-emerald-200 shadow-xs hover-lift transition-all">
                 <h4 className="font-extrabold text-base text-[#48B83B] mb-2 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#48B83B]" />
+                  <Target className="w-4 h-4 text-[#48B83B]" />
                   {cs.title}
                 </h4>
                 <p className="text-xs text-slate-600 font-medium leading-relaxed">

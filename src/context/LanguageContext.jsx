@@ -4,20 +4,14 @@ import { translations } from '../translations';
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(() => {
-    return localStorage.getItem('proposal_lang') || 'en';
-  });
+  const [lang, setLang] = useState('en');
 
   useEffect(() => {
-    localStorage.setItem('proposal_lang', lang);
-  }, [lang]);
+    localStorage.setItem('proposal_lang', 'en');
+  }, []);
 
-  const toggleLanguage = (newLang) => {
-    if (newLang) {
-      setLang(newLang);
-    } else {
-      setLang((prev) => (prev === 'en' ? 'nl' : 'en'));
-    }
+  const toggleLanguage = () => {
+    setLang('en');
   };
 
   const t = (keyPath) => {

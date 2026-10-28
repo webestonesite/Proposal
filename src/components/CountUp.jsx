@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function CountUp({ end, prefix = '', suffix = '', duration = 2000 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef(null);
   const hasAnimated = useRef(false);
 

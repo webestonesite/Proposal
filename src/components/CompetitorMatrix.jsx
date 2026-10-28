@@ -14,7 +14,7 @@ export default function CompetitorMatrix() {
       traffic: '5,200,000 / mo',
       da: '52',
       stores: '2,400+',
-      isBargello: false,
+      isClient: false,
       rankBadge: 'bg-amber-100 text-amber-900 border-amber-300'
     },
     {
@@ -26,7 +26,7 @@ export default function CompetitorMatrix() {
       traffic: '664,000 / mo',
       da: '47',
       stores: '100+',
-      isBargello: false,
+      isClient: false,
       rankBadge: 'bg-[#FFC107] text-slate-900 font-extrabold'
     },
     {
@@ -38,19 +38,19 @@ export default function CompetitorMatrix() {
       traffic: '350,000 / mo',
       da: '34',
       stores: '0 (Online Only)',
-      isBargello: false,
+      isClient: false,
       rankBadge: 'bg-slate-200 text-slate-800'
     },
     {
       rank: '#4',
-      name: 'Bargello Eindhoven',
+      name: 'Tereapoint',
       position: 'Local Niche Retailer (Current)',
       pages: '35 – 40',
       keywords: '0',
       traffic: '50 – 100 / mo',
       da: '1',
       stores: '1 (Eindhoven)',
-      isBargello: true,
+      isClient: true,
       rankBadge: 'bg-[#48B83B] text-white font-black'
     }
   ];
@@ -58,25 +58,25 @@ export default function CompetitorMatrix() {
   const gaps = [
     {
       title: 'Gap 1: Content Volume Deficit',
-      desc: 'Bargello has 35–40 pages vs Parfumado’s 100+ pages (60% volume deficit). Organic discovery requires expanding category guides & scent blogs.',
+      desc: 'Tereapoint has [X] pages vs [Competitor 1]’s 100+ pages. Organic discovery requires expanding category guides & blogs.',
       severity: 'HIGH',
       badgeBg: 'bg-amber-100 text-amber-900 border-amber-300'
     },
     {
       title: 'Gap 2: Ranking Keywords Void',
-      desc: 'Bargello currently ranks for 0 keywords vs Parfumado’s 38 niche terms and Douglas’s 8,500+. Immediate target: capture 35+ high-intent Dutch keywords.',
+      desc: 'Tereapoint currently ranks for 0 keywords vs [Competitor 2]’s 38 niche terms. Immediate target: capture high-intent Dubai keywords.',
       severity: 'CRITICAL',
       badgeBg: 'bg-red-100 text-red-900 border-red-300'
     },
     {
       title: 'Gap 3: Domain Authority & Backlinks',
-      desc: 'Bargello DA is 1 vs Parfumado (34) & ICI Paris XL (47). Building 100+ Dutch niche backlinks will bridge the authority gap within 6 months.',
+      desc: 'Tereapoint DA is 1 vs [Competitor 3] (47). Building niche backlinks will bridge the authority gap within 6 months.',
       severity: 'HIGH',
       badgeBg: 'bg-amber-100 text-amber-900 border-amber-300'
     },
     {
       title: 'Gap 4: Local Eindhoven Monopoly',
-      desc: 'Neither Parfumado nor Douglas optimize specifically for Eindhoven local intent. Bargello can capture 100% of regional Brabant local search volume.',
+      desc: 'Neither [Competitor 1] nor [Competitor 2] optimize specifically for Dubai local intent. Tereapoint can capture regional local search volume.',
       severity: 'OPPORTUNITY',
       badgeBg: 'bg-emerald-100 text-emerald-900 border-emerald-300'
     }
@@ -94,7 +94,7 @@ export default function CompetitorMatrix() {
             Rank-Ordered Competitor Audit & Strategic Gaps
           </h2>
           <p className="text-slate-600 text-sm mt-1.5 font-medium leading-relaxed">
-            Dutch market ranking hierarchy: Douglas (#1), ICI Paris XL (#2), Parfumado (#3), vs Bargello Eindhoven (#4).
+            UAE market ranking hierarchy: [Comp 1] (#1), [Comp 2] (#2), [Comp 3] (#3), vs Tereapoint (#4).
           </p>
         </div>
 
@@ -118,7 +118,7 @@ export default function CompetitorMatrix() {
                 <tr
                   key={idx}
                   className={`transition duration-150 ${
-                    item.isBargello ? 'bg-emerald-50/80 font-bold text-slate-900 border-l-4 border-l-[#48B83B]' : 'hover:bg-slate-50/60'
+                    item.isClient ? 'bg-emerald-50/80 font-bold text-slate-900 border-l-4 border-l-[#48B83B]' : 'hover:bg-slate-50/60'
                   }`}
                 >
                   <td className="py-3.5 px-4">
@@ -128,7 +128,7 @@ export default function CompetitorMatrix() {
                   </td>
                   <td className="py-3.5 px-4 sm:px-6 font-extrabold text-slate-900 flex items-center gap-2">
                     {item.name}
-                    {item.isBargello && (
+                    {item.isClient && (
                       <span className="text-[10px] px-2 py-0.5 rounded bg-[#48B83B] text-white font-extrabold uppercase">TARGET OPPORTUNITY</span>
                     )}
                   </td>

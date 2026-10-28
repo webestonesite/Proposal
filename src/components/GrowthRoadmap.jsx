@@ -8,8 +8,8 @@ export default function GrowthRoadmap() {
   const data = {
     en: {
       sectionTitle: 'EXECUTION ROADMAP',
-      title: '6-Month SEO, Content Marketing & Google Ads Execution Plan',
-      subTitle: 'Clear month-by-month breakdown across SEO, Content Writing, Product Image Design, and Google Ads PPC.',
+      title: '6-Month SEO & Content Marketing Execution Plan',
+      subTitle: 'Clear month-by-month breakdown across Technical SEO, Content Writing, Product Image Design, and Off-Page Link Building.',
       scopeTitle: 'Total Project Scope Summary (6 Months)',
       scopeTag: 'Full Content & SEO Deliverables',
       seoScope: 'SEO Scope',
@@ -17,7 +17,7 @@ export default function GrowthRoadmap() {
         'Comprehensive Full-Site Keyword Research',
         'Technical SEO Audit & Core Web Vitals',
         'On-Page Meta, Alt & Schema Markup',
-        'High-Authority Dutch Backlinks & Outreach',
+        'High-Authority UAE Backlinks & Outreach',
         'Monthly SEO & Audit Reports'
       ],
       contentScope: 'Content Scope',
@@ -34,18 +34,18 @@ export default function GrowthRoadmap() {
         'Custom Designed Product Images (If Needed)',
         'Web Optimization & Alt Tag SEO'
       ],
-      adsScope: 'Google Ads (PPC)',
+      adsScope: 'Off-Page & Backlinks',
       adsItems: [
-        'Keyword Research & Campaign Setup',
-        'High-Converting Ad Copy Writing',
-        'Conversion Tracking & A/B Testing',
-        'Ongoing Budget & ROI Optimization'
+        'Domain Authority & DR Building',
+        'UAE High-Authority Backlink Outreach',
+        'Niche Editorial Link Placements',
+        'Monthly Link Health Monitoring'
       ],
       thMonth: 'Month',
       thSeo: 'SEO & Technical Tasks',
       thContent: 'Content Writing',
       thImages: 'Product Images',
-      thAds: 'Google Ads / Off-Page',
+      thAds: 'Off-Page & Authority',
       thDeliverables: 'Key Deliverables',
       startsM2: 'Starts Month 2',
       phase2Focus: 'Phase 2 Focus',
@@ -125,23 +125,23 @@ export default function GrowthRoadmap() {
         {
           month: 'Month 4',
           phase: 'Backlink Authority Launch',
-          title: 'Dutch Backlink & Authority Scaling',
+          title: 'UAE Backlink & Authority Scaling',
           badgeBg: 'bg-amber-100 text-amber-900',
           seo: [
             'High-Authority Link Building Campaign Launch',
-            'Dutch Niche Editorial Link Placement'
+            'UAE Niche Editorial Link Placement'
           ],
           content: [
             'SEO Blog Posts'
           ],
           images: 'Product Images Package',
           ads: [
-            'Google Ads Search Campaign Setup',
-            'Ad Copy & Keyword Selection for High-Intent Terms'
+            'High-Authority Backlink Campaign Launch',
+            'UAE Niche Guest Post Outreach & Placements'
           ],
           deliverables: [
             'Product Descriptions Complete',
-            'Google Ads Search Campaign Live'
+            'Backlink Outreach Campaign Live'
           ]
         },
         {
@@ -158,12 +158,12 @@ export default function GrowthRoadmap() {
           ],
           images: 'Product Images Package',
           ads: [
-            'Google Ads Management & Negative Keyword Optimization',
-            'Bid Management & Ad Copy A/B Testing'
+            'Editorial Link Building & Brand Citations',
+            'Local Directory & Regional Entity Backlinks'
           ],
           deliverables: [
             'Backlink Acquisition Report',
-            'Google Ads Campaign Active',
+            'Domain Rating Velocity Growth',
             'SEO Blog Articles'
           ]
         },
@@ -181,208 +181,21 @@ export default function GrowthRoadmap() {
           ],
           images: 'Final Brand Asset Package',
           ads: [
-            'Google Ads Campaign Optimization & A/B Testing',
-            'Budget Optimization & CRO Improvements',
-            'Performance & ROI Reporting'
+            'High-Authority Press Release & Media Features',
+            'Backlink Profile Audit & Competitor Link Gap Analysis',
+            'Authority Link Reporting'
           ],
           deliverables: [
             'Final SEO Growth Report',
-            'Google Ads Performance Report',
+            'Complete Backlink Audit Report',
             'Final SEO Blog Posts'
-          ]
-        }
-      ]
-    },
-    nl: {
-      sectionTitle: 'UITVOERINGSSTRATEGIE',
-      title: '6-Maanden SEO, Content Marketing & Google Ads Uitvoeringsplan',
-      subTitle: 'Duidelijke maandelijkse opsplitsing in SEO, Content Schrijven, Productafbeeldingsontwerp en Google Ads PPC.',
-      scopeTitle: 'Totale Projectomvang Samenvatting (6 Maanden)',
-      scopeTag: 'Volledige Content & SEO Opleveringen',
-      seoScope: 'SEO Omvang',
-      seoItems: [
-        'Uitgebreid Volledig Zoekwoordonderzoek',
-        'Technische SEO Audit & Core Web Vitals',
-        'On-Page Meta, Alt & Schema Markup',
-        'Hoogwaardige Nederlandse Backlinks & Linkbuilding',
-        'Maandelijkse SEO & Audit Rapporten'
-      ],
-      contentScope: 'Content Omvang',
-      contentItems: [
-        'Homepagina + Beleid & Contactpagina’s',
-        'Productpagina’s Inhoud',
-        'Categoriepagina’s Inhoud (Optioneel)',
-        'SEO Blogartikelen'
-      ],
-      imageScope: 'Productafbeeldingen',
-      ifNeeded: '(Indien Nodig)',
-      imageItems: [
-        'Afbeeldingsstijl & Branding Sjabloon Instelling',
-        'Aangepaste Productafbeeldingen (Indien Nodig)',
-        'Web-Optimalisatie & Alt-Tag SEO'
-      ],
-      adsScope: 'Google Ads (PPC)',
-      adsItems: [
-        'Zoekwoordonderzoek & Campagne Instelling',
-        'Hoog-Converterende Advertentieteksten',
-        'Conversietracking & A/B-Testen',
-        'Doorlopende Budget & ROI Optimalisatie'
-      ],
-      thMonth: 'Maand',
-      thSeo: 'SEO & Technische Taken',
-      thContent: 'Content Schrijven',
-      thImages: 'Productafbeeldingen',
-      thAds: 'Google Ads / Off-Page',
-      thDeliverables: 'Belangrijkste Opleveringen',
-      startsM2: 'Start Maand 2',
-      phase2Focus: 'Fase 2 Focus',
-      months: [
-        {
-          month: 'Maand 1',
-          phase: 'Technische & On-Page Basis',
-          title: 'SEO Audit & Website Basis',
-          badgeBg: 'bg-emerald-100 text-emerald-800',
-          seo: [
-            'Website SEO Audit & Technische Audit',
-            'Concurrentieanalyse & Zoekwoordstrategie',
-            'Uitgebreid Zoekwoordonderzoek (Producten, Categorieën, Blogs)',
-            'Google Search Console (GSC) & GA4 Instelling'
-          ],
-          content: '—',
-          images: [
-            'Productafbeelding Branding Instelling',
-            'Master Ontwerpsjabloon voor Productafbeeldingen'
-          ],
-          ads: '—',
-          deliverables: [
-            'SEO Audit Rapport',
-            'Uitgebreide Zoekwoordstrategie',
-            'Technische Audit & Instelling Voltooid',
-            'Productafbeelding Ontwerpsjabloon'
-          ]
-        },
-        {
-          month: 'Maand 2',
-          phase: 'Content Schrijven & On-Page SEO Lancering',
-          title: 'Content Schrijven & On-Page SEO Lancering',
-          badgeBg: 'bg-emerald-100 text-emerald-800',
-          seo: [
-            'Zoekwoordmapping voor Product- & Categoriepagina’s',
-            'On-Page SEO (Meta Titels, Beschrijvingen & H1)',
-            'Afbeelding Alt Tags & Schema Markup',
-            'Interne Linkstructuur Instelling'
-          ],
-          content: [
-            'Homepagina & Basispagina’s Inhoud',
-            'Productpagina’s Inhoud',
-            'Categoriepagina’s Inhoud (Heren, Dames, Exclusief)',
-            'SEO Blogberichten'
-          ],
-          images: [
-            'Aangepaste Productafbeeldingen Ontwerpen voor Producten'
-          ],
-          ads: '—',
-          deliverables: [
-            'On-Page SEO Voltooid',
-            'Basispagina’s & Eerste Productbeschrijvingen Gepubliceerd'
-          ]
-        },
-        {
-          month: 'Maand 3',
-          phase: 'Collectie Schema & E-Commerce Optimalisatie',
-          title: 'Collectie Schema & E-Commerce Optimalisatie',
-          badgeBg: 'bg-emerald-100 text-emerald-800',
-          seo: [
-            'Technische Schema Markup Implementatie',
-            'Interne Linkstructuur Verfijning'
-          ],
-          content: [
-            'Productpagina’s Inhoud',
-            'SEO Blogberichten'
-          ],
-          images: [
-            'Productafbeeldingen Pakket'
-          ],
-          ads: '—',
-          deliverables: [
-            'Alle Hoofdcategorieën & Belangrijke Productteksten Geleverd',
-            'Productafbeeldingen Pakket Voltooid'
-          ]
-        },
-        {
-          month: 'Maand 4',
-          phase: 'Nederlandse Backlinks & Autoriteit Schalen',
-          title: 'Nederlandse Backlinks & Autoriteit Schalen',
-          badgeBg: 'bg-amber-100 text-amber-900',
-          seo: [
-            'Hoogwaardige Linkbuilding Campagne Lancering',
-            'Nederlandse Niche Redactionele Linkplaatsing'
-          ],
-          content: [
-            'SEO Blogberichten'
-          ],
-          images: 'Productafbeeldingen Pakket',
-          ads: [
-            'Google Ads Zoekcampagne Instelling',
-            'Advertentieteksten & Zoekwoordselectie voor Hoge Intentie'
-          ],
-          deliverables: [
-            'Productbeschrijvingen Voltooid',
-            'Google Ads Zoekcampagne Live'
-          ]
-        },
-        {
-          month: 'Maand 5',
-          phase: 'Conversie-Optimalisatie (CRO)',
-          title: 'Conversie-Optimalisatie (CRO)',
-          badgeBg: 'bg-amber-100 text-amber-900',
-          seo: [
-            'Voortgezette Linkwerving & Opbouw van Domeinrating',
-            'Zoekwoord Ranking Snelheidsbewaking'
-          ],
-          content: [
-            'SEO Blogberichten'
-          ],
-          images: 'Productafbeeldingen Pakket',
-          ads: [
-            'Google Ads Beheer & Uitsluitingszoekwoorden Optimalisatie',
-            'Biedingsbeheer & Advertentietekst A/B-Testen'
-          ],
-          deliverables: [
-            'Backlink Wervingsrapport',
-            'Google Ads Campagne Actief',
-            'SEO Blogartikelen'
-          ]
-        },
-        {
-          month: 'Maand 6',
-          phase: 'Marktleiderschap & Omzet Dominantie',
-          title: 'Marktleiderschap & Omzet Dominantie',
-          badgeBg: 'bg-amber-100 text-amber-900',
-          seo: [
-            'Hoogwaardige Linkbuilding & Outreach',
-            'Backlink Monitoring & Autoriteitsgroei'
-          ],
-          content: [
-            'SEO Blogberichten'
-          ],
-          images: 'Definitief Merk-Asset Pakket',
-          ads: [
-            'Google Ads Campagne Optimalisatie & A/B-Testen',
-            'Budget-Optimalisatie & CRO-Verbeteringen',
-            'Prestatie- & ROI-Rapportage'
-          ],
-          deliverables: [
-            'Definitief SEO Groeirapport',
-            'Google Ads Prestatierapport',
-            'Definitieve SEO Blogberichten'
           ]
         }
       ]
     }
   };
 
-  const curr = data[lang] || data.en;
+  const curr = data.en;
 
   return (
     <section className="py-12 bg-slate-100 border-b border-slate-200" id="roadmap">
@@ -402,7 +215,7 @@ export default function GrowthRoadmap() {
         </div>
 
         {/* Project Total Scope Summary Table */}
-        <div className="mb-10 bg-white rounded-xl border-2 border-[#48B83B] shadow-sm overflow-hidden animate-fade-up hover-lift">
+        <div className="total-scope-box mb-10 bg-white rounded-xl border-2 border-[#48B83B] shadow-sm overflow-hidden animate-fade-up hover-lift">
           <div className="bg-[#48B83B] text-white px-6 py-3 font-black text-xs uppercase tracking-wider flex items-center justify-between">
             <span className="flex items-center gap-2">
               <Layers className="w-4 h-4 text-white animate-pulse" />
